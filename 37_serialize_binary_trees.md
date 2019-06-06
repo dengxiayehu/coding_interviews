@@ -1,0 +1,111 @@
+# 序列化二叉树
+
+> 请实现两个函数，分别用来序列化和反序列化二叉树。
+
+``` cpp
+#include <iostream>
+#include <strstream> // 牛客网默认没有这个头文件包含，提交代码时需要带上
+#include <string>
+
+#include "tree_util.h"
+
+using namespace std;
+
+class Solution {
+public:
+    char* Serialize(TreeNode *root) {
+        if (!root) {
+            return NULL;
+        }
+        strm_.clear();
+        searialize_core(root, strm_);
+
+        return strm_.str();
+    }
+
+    TreeNode* Deserialize(char *str) {
+        if (!str || !*str) {
+            return NULL;
+        }
+
+        TreeNode *node = NULL;
+        deserialize_core(&node, &str);
+
+        return node;
+    }
+
+private:
+    static void searialize_core(TreeNode *node, ostrstream &strm) {
+        if (!node) {
+            strm << "#,";
+            return;
+        }
+        strm << node->val << ",";
+        searialize_core(node->left, strm);
+        searialize_core(node->right, strm);
+    }
+
+    static void deserialize_core(TreeNode **node, char **str) {
+        int val;
+        if (read_node(val, str)) {
+            *node = new TreeNode(val);
+            deserialize_core(&(*node)->left, str);
+            deserialize_core(&(*node)->right, str);
+        }
+    }
+
+    static bool read_node(int &val, char **str) {
+        char *p = *str;
+        if (*p == '#') {
+            if (*(p+1) == ',') {
+                *str += 2;
+            }
+            return false;
+        }
+
+        char *q = strchr(p, ',');
+        if (!q) { // error format
+            return false;
+        }
+
+        // Reconstruct val.
+        bool ret = true;
+        *q = '\0';
+        if (sscanf(p, "%d", &val) < 0) {
+            ret = false;
+        }
+        *q = ',';
+        *str += (q-p+1);
+        return ret;
+    }
+
+private:
+    std::ostrstream strm_;
+};
+
+int main(int argc, char *argv[])
+{
+    {
+        int arr[] = { 10, -1, 11, -1, 12, -1, -1 };
+        TreeNode *root = create_pre_order(arr, NELEM(arr));
+        char *str = Solution().Serialize(root);
+        pre_order(root);
+        cout << "Searalized string: " << str << endl;
+        TreeNode *searialized = Solution().Deserialize(str);
+        pre_order(searialized);
+        delete_postorder(root);
+        delete_postorder(searialized);
+    }
+
+    return 0;
+}
+```
+
+> 输出结果：  
+walk with stack:  
+10 11 12  
+Searalized string: 10,#,11,#,12,#,#,  
+walk with stack:  
+10 11 12
+
+这道题在实践时，自由度较高，我们要选择最保险的方式去实现，用自己熟悉的函数和数据结构。
