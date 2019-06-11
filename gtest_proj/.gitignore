@@ -1,0 +1,6 @@
+src/config.h
+build
+.cache
+
+third_party/googletest/googletest-1.17.0
+third_party/install

@@ -13,7 +13,9 @@ public:
     static Singleton *GetInstance() {
         if (!instance) {
             pthread_mutex_lock(&mutex);
-            instance = new Singleton;
+            if (instance == nullptr) {
+                instance = new Singleton;
+            }
             pthread_mutex_unlock(&mutex);
         }
         return instance;
