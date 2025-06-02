@@ -22,6 +22,12 @@ private:
     Singleton() {
     }
 
+    // 单例模式拷贝构造和赋值函数也需要是私有（使用 = delete 可以阻止编译器生成的默认版本），阻止下面两种情况：
+    // Singleton s = *Singleton::GetInstance();
+    // *s = *Singleton::GetInstance();
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
+
     class GC {
     public:
         ~GC() {
