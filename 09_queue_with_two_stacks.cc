@@ -3,8 +3,7 @@
 
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
     void push(int node) {
         stack1.push(node);
@@ -27,12 +26,11 @@ public:
     }
 
 private:
-    stack<int> stack1; // in
-    stack<int> stack2; // out
+    stack<int> stack1;  // in
+    stack<int> stack2;  // out
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution s;
 
     s.push(1);

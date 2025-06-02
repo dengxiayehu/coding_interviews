@@ -7,8 +7,8 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int> > FindPath(TreeNode* root, int expectNumber) {
-        vector<vector<int> > res;
+    vector<vector<int>> FindPath(TreeNode* root, int expectNumber) {
+        vector<vector<int>> res;
         if (!root) {
             return res;
         }
@@ -21,8 +21,8 @@ public:
     }
 
 private:
-    static void find_path_core(TreeNode *node, const int expect_number, int current_sum,
-                               vector<int> &path, vector<vector<int> > &res) {
+    static void find_path_core(TreeNode* node, const int expect_number, int current_sum, vector<int>& path,
+                               vector<vector<int>>& res) {
         path.push_back(node->val);
         current_sum += node->val;
         if (current_sum == expect_number && (!node->left) && (!node->right)) {
@@ -42,14 +42,13 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 10, 5, 4, -1, -1, 7, -1, -1, 12, -1, -1 };
+        int arr[] = {10, 5, 4, -1, -1, 7, -1, -1, 12, -1, -1};
         TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
-        vector<vector<int> > res = Solution().FindPath(root, 22);
-        for (vector<vector<int> >::iterator it = res.begin(); it != res.end(); it++) {
+        vector<vector<int>> res = Solution().FindPath(root, 22);
+        for (vector<vector<int>>::iterator it = res.begin(); it != res.end(); it++) {
             for (vector<int>::iterator it1 = it->begin(); it1 != it->end(); it1++) {
                 cout << *it1 << " ";
             }
@@ -59,11 +58,11 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { 10, 5, 4, -1, -1, 7, -1, -1, 12, -1, -1 };
+        int arr[] = {10, 5, 4, -1, -1, 7, -1, -1, 12, -1, -1};
         TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
-        vector<vector<int> > res = Solution().FindPath(root, 0);
-        for (vector<vector<int> >::iterator it = res.begin(); it != res.end(); it++) {
+        vector<vector<int>> res = Solution().FindPath(root, 0);
+        for (vector<vector<int>>::iterator it = res.begin(); it != res.end(); it++) {
             for (vector<int>::iterator it1 = it->begin(); it1 != it->end(); it1++) {
                 cout << *it1 << " ";
             }
@@ -73,11 +72,11 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { 10, 5, 4, -1, -1, 7, -1, -1, 12, -1, -1 };
+        int arr[] = {10, 5, 4, -1, -1, 7, -1, -1, 12, -1, -1};
         TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
-        vector<vector<int> > res = Solution().FindPath(root, 12);
-        for (vector<vector<int> >::iterator it = res.begin(); it != res.end(); it++) {
+        vector<vector<int>> res = Solution().FindPath(root, 12);
+        for (vector<vector<int>>::iterator it = res.begin(); it != res.end(); it++) {
             for (vector<int>::iterator it1 = it->begin(); it1 != it->end(); it1++) {
                 cout << *it1 << " ";
             }

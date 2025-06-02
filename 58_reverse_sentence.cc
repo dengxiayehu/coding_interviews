@@ -9,7 +9,7 @@ public:
         if (len <= 1) {
             return str;
         }
-        reverse_string(str, 0, len-1);
+        reverse_string(str, 0, len - 1);
         int begin = -1;
         int end = -1;
         for (int i = 0; i < len; i++) {
@@ -23,7 +23,7 @@ public:
             while (str[i] && (str[i] != ' ' && str[i] != '\t')) {
                 i++;
             }
-            end = i-1;
+            end = i - 1;
             reverse_string(str, begin, end);
         }
         return str;
@@ -41,8 +41,7 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     cout << Solution().ReverseSentence("I am a student.") << endl;
     return 0;
 }

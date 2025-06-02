@@ -23,8 +23,7 @@ public:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().Fibonacci(0) << endl;
     cout << Solution().Fibonacci(1) << endl;
     cout << Solution().Fibonacci(2) << endl;

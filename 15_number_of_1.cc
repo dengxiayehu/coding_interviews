@@ -4,18 +4,17 @@ using namespace std;
 
 class Solution {
 public:
-    int  NumberOf1(int n) {
+    int NumberOf1(int n) {
         int count = 0;
         while (n) {
-            n &= (n-1);
+            n &= (n - 1);
             count++;
         }
         return count;
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().NumberOf1(-8) << endl;
     cout << Solution().NumberOf1(0xFFFFFFF8) << endl;
     cout << Solution().NumberOf1(0x7FFFFFFF) << endl;

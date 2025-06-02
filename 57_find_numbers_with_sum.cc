@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define NELEM(arr) (sizeof(arr)/sizeof(arr[0]))
+#define NELEM(arr) (sizeof(arr) / sizeof(arr[0]))
 
 class Solution {
 public:
@@ -15,12 +15,12 @@ public:
         }
 
         int begin = 0;
-        int end = array.size()-1;
+        int end = array.size() - 1;
         while (begin < end) {
-            int tmp_sum = array[begin]+array[end];
+            int tmp_sum = array[begin] + array[end];
             if (tmp_sum == sum) {
                 // 找到一个候选项。
-                if (res.empty() || array[begin]*array[end] < res[0]*res[1]) {
+                if (res.empty() || array[begin] * array[end] < res[0] * res[1]) {
                     res.push_back(array[begin]);
                     res.push_back(array[end]);
                 }
@@ -37,17 +37,16 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 1, 2, 4, 7, 11, 15 };
-        vector<int> res = Solution().FindNumbersWithSum(vector<int>(arr, arr+NELEM(arr)), 15);
+        int arr[] = {1, 2, 4, 7, 11, 15};
+        vector<int> res = Solution().FindNumbersWithSum(vector<int>(arr, arr + NELEM(arr)), 15);
         cout << res[0] << ", " << res[1] << endl;
     }
 
     {
-        int arr[] = { 1, 2, 3, 4, 5 };
-        vector<int> res = Solution().FindNumbersWithSum(vector<int>(arr, arr+NELEM(arr)), 6);
+        int arr[] = {1, 2, 3, 4, 5};
+        vector<int> res = Solution().FindNumbersWithSum(vector<int>(arr, arr + NELEM(arr)), 6);
         cout << res[0] << ", " << res[1] << endl;
     }
 

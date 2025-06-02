@@ -6,8 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
-    {
+    bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2) {
         bool result = false;
 
         if (pRoot1 && pRoot2) {
@@ -30,38 +29,36 @@ public:
     }
 
 private:
-    static bool is_same_tree(TreeNode *t, TreeNode *sub) {
-        if (!sub) { // sub comes to the end of leaf
+    static bool is_same_tree(TreeNode* t, TreeNode* sub) {
+        if (!sub) {  // sub comes to the end of leaf
             return true;
         }
-        if (!t) { // t comes to the end of leaf, not match
+        if (!t) {  // t comes to the end of leaf, not match
             return false;
         }
-        if (t->val != sub->val) { // value not match
+        if (t->val != sub->val) {  // value not match
             return false;
         }
-        return is_same_tree(t->left, sub->left) &&
-               is_same_tree(t->right, sub->right);
+        return is_same_tree(t->left, sub->left) && is_same_tree(t->right, sub->right);
     }
 };
 
-int main(int argc, char *argv[])
-{
-/*
-   1
- 2  3
-4  5
-    6
-*/
-    int arr[] = { 1, 2, 4, -1, -1, -1, 3, 5, -1, 6, -1, -1, -1 };
+int main(int argc, char* argv[]) {
+    /*
+       1
+     2  3
+    4  5
+        6
+    */
+    int arr[] = {1, 2, 4, -1, -1, -1, 3, 5, -1, 6, -1, -1, -1};
     // int arr[] = { 1, 2, 4, -1, -1, -1, -1 };
-    TreeNode *root = create_pre_order(arr, NELEM(arr));
+    TreeNode* root = create_pre_order(arr, NELEM(arr));
     pre_order(root);
 
-    int arr_sub[] = { 3, 5, -1, 6, -1, -1, -1 };
+    int arr_sub[] = {3, 5, -1, 6, -1, -1, -1};
     // int arr_sub[] = { 3, 5, -1, -1, -1, -1 };
     // int arr_sub[] = { 3, -1, -1 };
-    TreeNode *root_sub = create_pre_order(arr_sub, NELEM(arr_sub));
+    TreeNode* root_sub = create_pre_order(arr_sub, NELEM(arr_sub));
     pre_order(root_sub);
 
     bool res = Solution().HasSubtree(root, root_sub);
@@ -78,6 +75,6 @@ int main(int argc, char *argv[])
 
     delete_postorder(root);
     delete_postorder(root_sub);
-    
+
     return 0;
 }

@@ -1,17 +1,18 @@
-#include <iostream>
 #include <string.h>
+
+#include <iostream>
 
 using namespace std;
 
 class Solution {
 public:
-	void replaceSpace(char *str, int length) {
+    void replaceSpace(char* str, int length) {
         if (!str || length <= 1) {
             return;
         }
 
         int space_count = 0;
-        char *p = str;
+        char* p = str;
         while (*p) {
             if (*p == ' ') {
                 space_count++;
@@ -22,10 +23,10 @@ public:
             // No any space char, return.
             return;
         }
-        p--; // points to the last char of str
-        char *q = p;
-        p += (space_count<<1); // p points to the last char of new str
-        *(p+1) = '\0';
+        p--;  // points to the last char of str
+        char* q = p;
+        p += (space_count << 1);  // p points to the last char of new str
+        *(p + 1) = '\0';
         while (q >= str) {
             if (*q == ' ') {
                 *p-- = '0';
@@ -36,11 +37,10 @@ public:
                 *p-- = *q--;
             }
         }
-	}
+    }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution s;
 
     char str[128] = "abc";

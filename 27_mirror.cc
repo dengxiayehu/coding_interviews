@@ -6,13 +6,13 @@ using namespace std;
 
 class Solution {
 public:
-    void Mirror(TreeNode *pRoot) {
+    void Mirror(TreeNode* pRoot) {
         if (!pRoot) {
             return;
         }
 
         // Exchange left right sub-tree's root node.
-        TreeNode *t = pRoot->left;
+        TreeNode* t = pRoot->left;
         pRoot->left = pRoot->right;
         pRoot->right = t;
 
@@ -23,16 +23,15 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
-/*
-  1
- 2
-3
-*/
+int main(int argc, char* argv[]) {
+    /*
+      1
+     2
+    3
+    */
     {
-        int arr[] = { 1, 2, 3, -1, -1, -1, -1 };
-        TreeNode *root = create_pre_order(arr, NELEM(arr));
+        int arr[] = {1, 2, 3, -1, -1, -1, -1};
+        TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
         Solution().Mirror(root);
         pre_order(root);
@@ -40,20 +39,20 @@ int main(int argc, char *argv[])
     }
 
     {
-/*
-   1
- 2  3
-4  5
-    6
+        /*
+           1
+         2  3
+        4  5
+            6
 
-  1
-3  2
- 5  4
-6
-1 3 5 6 2 4
-*/
-        int arr[] = { 1, 2, 4, -1, -1, -1, 3, 5, -1, 6, -1, -1, -1 };
-        TreeNode *root = create_pre_order(arr, NELEM(arr));
+          1
+        3  2
+         5  4
+        6
+        1 3 5 6 2 4
+        */
+        int arr[] = {1, 2, 4, -1, -1, -1, 3, 5, -1, 6, -1, -1, -1};
+        TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
         Solution().Mirror(root);
         pre_order(root);
@@ -61,13 +60,13 @@ int main(int argc, char *argv[])
     }
 
     {
-/*
-  1
+        /*
+          1
 
-  1
-*/
-        int arr[] = { 1, -1, -1 };
-        TreeNode *root = create_pre_order(arr, NELEM(arr));
+          1
+        */
+        int arr[] = {1, -1, -1};
+        TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
         Solution().Mirror(root);
         pre_order(root);

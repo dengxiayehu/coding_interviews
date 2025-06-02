@@ -12,9 +12,9 @@ public:
         if (n == 0) {
             return str;
         }
-        reverse_string(str, 0, n-1);
-        reverse_string(str, n, str.length()-1);
-        reverse_string(str, 0, str.length()-1);
+        reverse_string(str, 0, n - 1);
+        reverse_string(str, n, str.length() - 1);
+        reverse_string(str, 0, str.length() - 1);
         return str;
     }
 
@@ -30,8 +30,7 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     cout << Solution().LeftRotateString("abcXYZdef", 3) << endl;
 
     return 0;

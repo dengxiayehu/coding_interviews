@@ -12,9 +12,9 @@ public:
             return NULL;
         }
 
-        ListNode *prev = NULL;
-        ListNode *p = pHead;
-        ListNode *q;
+        ListNode* prev = NULL;
+        ListNode* p = pHead;
+        ListNode* q;
         while (p) {
             q = p->next;
             p->next = prev;
@@ -26,15 +26,14 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
-    int arr[] = { 1, 2, 3, 4, 5 };
+int main(int argc, char* argv[]) {
+    int arr[] = {1, 2, 3, 4, 5};
     ListNode *head = NULL, *tail = NULL;
     create_list_by_array(arr, NELEM(arr), head, tail);
     print_list(Solution().ReverseList(head));
     destroy_list(head);
 
-    int arr1[] = { 1 };
+    int arr1[] = {1};
     create_list_by_array(arr1, NELEM(arr1), head, tail);
     print_list(Solution().ReverseList(head));
     destroy_list(head);

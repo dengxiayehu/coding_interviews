@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <set>
+#include <vector>
 
 #include "macro_util.h"
 
@@ -18,15 +18,15 @@ public:
         }
 
         // 在一堆数中间找出最小（大）的N个数，典型的堆算法。
-        multiset<int, greater<int> > max_heap;
+        multiset<int, greater<int>> max_heap;
         for (vector<int>::iterator it = input.begin(); it != input.end(); it++) {
             if (max_heap.size() < k) {
                 // 堆中元素不足k个，先往里面塞。
                 max_heap.insert(*it);
             } else {
                 // 堆中元素正好是k个，判断堆中最大元素是否比当前元素大，若是，则将最大元素丢掉，塞入当前元素。
-                multiset<int, greater<int> >::iterator it1 = max_heap.begin(); // it1指向堆中的最大元素
-                if (*it1 > *it) { // 堆中最大的元素比当前元素大，则用当前元素来“替换”最大的元素
+                multiset<int, greater<int>>::iterator it1 = max_heap.begin();  // it1指向堆中的最大元素
+                if (*it1 > *it) {  // 堆中最大的元素比当前元素大，则用当前元素来“替换”最大的元素
                     max_heap.erase(it1);
                     max_heap.insert(*it);
                 }
@@ -34,9 +34,7 @@ public:
         }
 
         // 最终将堆中元素存放入结果向量。
-        for (multiset<int, greater<int> >::iterator it = max_heap.begin();
-             it != max_heap.end();
-             it++) {
+        for (multiset<int, greater<int>>::iterator it = max_heap.begin(); it != max_heap.end(); it++) {
             res.push_back(*it);
         }
 
@@ -44,11 +42,10 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
-        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr+NELEM(arr)), 4);
+        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
+        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr + NELEM(arr)), 4);
         for (vector<int>::iterator it = res.begin(); it != res.end(); it++) {
             cout << *it << " ";
         }
@@ -56,8 +53,8 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { 1 };
-        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr+NELEM(arr)), 2);
+        int arr[] = {1};
+        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr + NELEM(arr)), 2);
         for (vector<int>::iterator it = res.begin(); it != res.end(); it++) {
             cout << *it << " ";
         }
@@ -65,8 +62,8 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { 1, 3, 5, 1, 0, 3, -1, 3, 9, 0 };
-        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr+NELEM(arr)), 2);
+        int arr[] = {1, 3, 5, 1, 0, 3, -1, 3, 9, 0};
+        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr + NELEM(arr)), 2);
         for (vector<int>::iterator it = res.begin(); it != res.end(); it++) {
             cout << *it << " ";
         }
@@ -74,8 +71,8 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { 4, 5, 1, 6, 2, 7, 3, 8 };
-        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr+NELEM(arr)), 4);
+        int arr[] = {4, 5, 1, 6, 2, 7, 3, 8};
+        vector<int> res = Solution().GetLeastNumbers_Solution(vector<int>(arr, arr + NELEM(arr)), 4);
         for (vector<int>::iterator it = res.begin(); it != res.end(); it++) {
             cout << *it << " ";
         }

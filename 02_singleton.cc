@@ -1,5 +1,6 @@
-#include <iostream>
 #include <pthread.h>
+
+#include <iostream>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ public:
     }
 
     // 懒汉式生成单例对象。
-    static Singleton *GetInstance() {
+    static Singleton* GetInstance() {
         if (!instance) {
             pthread_mutex_lock(&mutex);
             if (instance == nullptr) {
@@ -32,23 +33,22 @@ private:
         ~GC() {
             if (instance != NULL) {
                 cout << "delete instance" << endl;
-                delete instance; // 释放单例对象，注意无需加[]，因为不是数组类型
+                delete instance;  // 释放单例对象，注意无需加[]，因为不是数组类型
                 instance = NULL;
             }
         }
     };
 
-    static Singleton *instance;
+    static Singleton* instance;
     static pthread_mutex_t mutex;
     static GC gc;
 };
 
-Singleton *Singleton::instance = NULL;
+Singleton* Singleton::instance = NULL;
 pthread_mutex_t Singleton::mutex = PTHREAD_MUTEX_INITIALIZER;
 Singleton::GC Singleton::gc;
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Singleton::GetInstance();
 
     return 0;

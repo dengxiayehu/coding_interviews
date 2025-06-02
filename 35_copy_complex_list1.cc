@@ -11,9 +11,9 @@ public:
             return NULL;
         }
 
-        RandomListNode *node = pHead;
-        RandomListNode *tmp;
-        RandomListNode *q;
+        RandomListNode* node = pHead;
+        RandomListNode* tmp;
+        RandomListNode* q;
         while (node) {
             tmp = new RandomListNode(node->label);
             q = node->next;
@@ -24,19 +24,19 @@ public:
 
         node = pHead;
         while (node) {
-            tmp = node->next; // cloned node
+            tmp = node->next;  // cloned node
             if (node->random) {
                 tmp->random = node->random->next;
             }
             node = tmp->next;
         }
 
-        RandomListNode *chead = pHead->next;
-        RandomListNode *ctail = chead;
-        RandomListNode *tail = pHead;
+        RandomListNode* chead = pHead->next;
+        RandomListNode* ctail = chead;
+        RandomListNode* tail = pHead;
         node = chead->next;
         while (node) {
-            q = node->next; // cloned node
+            q = node->next;  // cloned node
             tail->next = node;
             tail = node;
             ctail->next = q;
@@ -50,14 +50,13 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 1, 2, 3, 4, 5 };
+        int arr[] = {1, 2, 3, 4, 5};
         RandomListNode *head, *tail;
         create_list_by_array(arr, NELEM(arr), head, tail);
         random_list(head, 0, 2, 3, 1, 1, 4, -1);
-        RandomListNode *cloned = Solution().Clone(head);
+        RandomListNode* cloned = Solution().Clone(head);
         print_list(head);
         print_list(cloned);
         destroy_list(head);
@@ -65,11 +64,11 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { 1 };
+        int arr[] = {1};
         RandomListNode *head, *tail;
         create_list_by_array(arr, NELEM(arr), head, tail);
         random_list(head, 0, 0, -1);
-        RandomListNode *cloned = Solution().Clone(head);
+        RandomListNode* cloned = Solution().Clone(head);
         print_list(head);
         print_list(cloned);
         destroy_list(head);
@@ -77,10 +76,10 @@ int main(int argc, char *argv[])
     }
 
     {
-        int arr[] = { '1', '2', '3', '4', '5', '3', '5', '#', '2', '#' };
+        int arr[] = {'1', '2', '3', '4', '5', '3', '5', '#', '2', '#'};
         RandomListNode *head, *tail;
         create_list_by_array(arr, NELEM(arr), head, tail);
-        RandomListNode *cloned = Solution().Clone(head);
+        RandomListNode* cloned = Solution().Clone(head);
         print_list(head);
         print_list(cloned);
         destroy_list(head);

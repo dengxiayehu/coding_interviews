@@ -37,13 +37,12 @@ public:
             return 0;
         }
         A* array = new A[n];
-        delete [] array;
+        delete[] array;
         return A::GetSum();
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     cout << Solution().Sum_Solution(3) << endl;
 
     cout << Solution().Sum_Solution(0) << endl;

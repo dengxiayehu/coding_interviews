@@ -20,7 +20,7 @@ public:
         }
         // 之所以只要判断到length=3是因为在length=4时，可以被length=2+2的情况考虑到。
 
-        int *max = new int[length+1]();
+        int* max = new int[length + 1]();
 
         max[0] = 0;
         max[1] = 1;
@@ -28,22 +28,21 @@ public:
         max[3] = 3;
 
         for (int i = 4; i <= length; i++) {
-            for (int j = 1; j <= (i>>1); j++) { // j从1开始表示至少切一刀。
-                int tmp = max[j]*max[i-j];
+            for (int j = 1; j <= (i >> 1); j++) {  // j从1开始表示至少切一刀。
+                int tmp = max[j] * max[i - j];
                 if (tmp > max[i]) {
                     max[i] = tmp;
                 }
             }
         }
 
-        delete [] max;
+        delete[] max;
 
         return max[length];
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().foo(0) << endl;
     cout << Solution().foo(1) << endl;
     cout << Solution().foo(2) << endl;

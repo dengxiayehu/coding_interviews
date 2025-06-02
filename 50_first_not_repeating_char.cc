@@ -10,13 +10,13 @@ public:
             return -1;
         }
 
-        int hash_table[128] = { 0 };
-        for (const char *p = str.c_str(); *p; p++) {
+        int hash_table[128] = {0};
+        for (const char* p = str.c_str(); *p; p++) {
             hash_table[static_cast<int>(*p)]++;
         }
-        for (const char *p = str.c_str(); *p; p++) {
+        for (const char* p = str.c_str(); *p; p++) {
             if (hash_table[static_cast<int>(*p)] == 1) {
-                return p-str.c_str();
+                return p - str.c_str();
             }
         }
 
@@ -24,8 +24,7 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     cout << Solution().FirstNotRepeatingChar("") << endl;
     cout << Solution().FirstNotRepeatingChar("abc") << endl;
     cout << Solution().FirstNotRepeatingChar("aabc") << endl;

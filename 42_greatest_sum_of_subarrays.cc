@@ -15,7 +15,7 @@ public:
         int max_so_far = array[0];
         int max_sum = array[0];
         for (int i = 1; i < array.size(); i++) {
-            max_so_far = mymax(max_so_far+array[i], array[i]);
+            max_so_far = mymax(max_so_far + array[i], array[i]);
             if (max_so_far > max_sum) {
                 max_sum = max_so_far;
             }
@@ -30,16 +30,15 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 6, -3, -2, 7, -15, 1, 2, 2 };
-        cout << Solution().FindGreatestSumOfSubArray(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {6, -3, -2, 7, -15, 1, 2, 2};
+        cout << Solution().FindGreatestSumOfSubArray(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     {
-        int arr[] = { -10, -2, -3, -4, -9 };
-        cout << Solution().FindGreatestSumOfSubArray(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {-10, -2, -3, -4, -9};
+        cout << Solution().FindGreatestSumOfSubArray(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     return 0;

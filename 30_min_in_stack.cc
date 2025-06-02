@@ -48,8 +48,7 @@ private:
     stack<int> min_s_;
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     Solution s;
     s.push(1);
     cout << s.min() << endl;

@@ -26,24 +26,23 @@ public:
     }
 
 private:
-    static bool scan_int(char *&string) {
+    static bool scan_int(char*& string) {
         if (*string == '+' || *string == '-') {
             ++string;
         }
         return scan_uint(string);
     }
 
-    static bool scan_uint(char *&string) {
-        char *save = string;
+    static bool scan_uint(char*& string) {
+        char* save = string;
         while (*string && *string >= '0' && *string <= '9') {
             ++string;
         }
-        return string > save; // got some digits
+        return string > save;  // got some digits
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().isNumeric(const_cast<char*>(string("2").c_str())) << endl;
     cout << Solution().isNumeric(const_cast<char*>(string("").c_str())) << endl;
     cout << Solution().isNumeric(const_cast<char*>(string("2.").c_str())) << endl;

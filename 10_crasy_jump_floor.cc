@@ -9,7 +9,7 @@ public:
             return 0;
         }
 
-        return mypow(2, number-1);
+        return mypow(2, number - 1);
     }
 
 private:
@@ -17,16 +17,15 @@ private:
         if (n == 0) {
             return 1;
         }
-        if (n&1) { // n is odd
-            return x*mypow(x*x, n/2);
-        } else { // n is even
-            return mypow(x*x, n/2);
+        if (n & 1) {  // n is odd
+            return x * mypow(x * x, n / 2);
+        } else {  // n is even
+            return mypow(x * x, n / 2);
         }
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().jumpFloorII(-1) << endl;
     cout << Solution().jumpFloorII(0) << endl;
     cout << Solution().jumpFloorII(1) << endl;

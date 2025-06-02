@@ -18,7 +18,7 @@ public:
         int fb_minus_1 = 2;
         int fb_minus_2 = 1;
         for (int i = 3; i <= number; i++) {
-            res = fb_minus_1+fb_minus_2;
+            res = fb_minus_1 + fb_minus_2;
             fb_minus_2 = fb_minus_1;
             fb_minus_1 = res;
         }
@@ -27,8 +27,7 @@ public:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().rectCover(-1) << endl;
     cout << Solution().rectCover(0) << endl;
     cout << Solution().rectCover(1) << endl;

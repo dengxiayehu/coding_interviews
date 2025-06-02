@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <queue>
+#include <vector>
 
 #include "macro_util.h"
 
@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution {
 public:
-    void reOrderArray(vector<int> &array) {
+    void reOrderArray(vector<int>& array) {
         if (array.empty()) {
             return;
         }
@@ -18,7 +18,7 @@ public:
 private:
     typedef bool (*Func)(const int v);
 
-    void reorder_array_core(vector<int> &array, Func func) {
+    void reorder_array_core(vector<int>& array, Func func) {
         const int n = array.size();
         int k = 0;
         queue<int> q;
@@ -36,14 +36,13 @@ private:
     }
 
     static bool is_odd(const int v) {
-        return v&1;
+        return v & 1;
     }
 };
 
-int main(int argc, char const *argv[])
-{
-    int arr[] = { 1, 2, 3, 4, 5, 6, 7 };
-    vector<int> v(arr, arr+NELEM(arr));
+int main(int argc, char const* argv[]) {
+    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    vector<int> v(arr, arr + NELEM(arr));
     Solution().reOrderArray(v);
     for (vector<int>::iterator it = v.begin(); it != v.end(); it++) {
         cout << *it << " ";

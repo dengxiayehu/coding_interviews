@@ -15,13 +15,13 @@ public:
             return 2;
         }
 
-        int times_of_3 = length/3;
-        int left = length - times_of_3*3;
+        int times_of_3 = length / 3;
+        int left = length - times_of_3 * 3;
         if (left == 1) {
             times_of_3 -= 1;
             left += 3;
         }
-        int times_of_2 = (left>>1);
+        int times_of_2 = (left >> 1);
 
         return mypow(3, times_of_3) * mypow(2, times_of_2);
     }
@@ -32,12 +32,11 @@ private:
             return 1;
         }
 
-        return ((exp&1) ? num : 1)*mypow(num*num, exp>>1);
+        return ((exp & 1) ? num : 1) * mypow(num * num, exp >> 1);
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().foo(0) << endl;
     cout << Solution().foo(1) << endl;
     cout << Solution().foo(2) << endl;

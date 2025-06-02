@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define NELEM(arr) sizeof(arr)/sizeof(arr[0])
+#define NELEM(arr) sizeof(arr) / sizeof(arr[0])
 
 class Solution {
 public:
@@ -19,10 +19,10 @@ public:
         }
 
         int l = 1;
-        int u = length-1;
+        int u = length - 1;
         while (l <= u) {
-            int m = l+((u-l)>>1); // middle number of l~u
-            int cnt = count_range(numbers, length, l, m); // count numbers in [l, m]
+            int m = l + ((u - l) >> 1);                    // middle number of l~u
+            int cnt = count_range(numbers, length, l, m);  // count numbers in [l, m]
             if (l == u) {
                 if (cnt > 1) {
                     if (duplication) {
@@ -33,12 +33,12 @@ public:
                     break;
                 }
             }
-            if (cnt > (m-l+1)) {
+            if (cnt > (m - l + 1)) {
                 // Duplication maybe in [l, m] for the numbers in [l, m] is more than m-l+1.
                 u = m;
             } else {
                 // Duplication maybe in [m+1, u].
-                l = m+1;
+                l = m + 1;
             }
         }
 
@@ -57,19 +57,18 @@ private:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution s;
     int dup;
 
-    int arr1[] = { 1, 4, 3, 2, 3 };
+    int arr1[] = {1, 4, 3, 2, 3};
     if (s.duplicate(arr1, NELEM(arr1), &dup)) {
         cout << "arr1 dup: " << dup << endl;
     } else {
         cout << "arr1 no dup" << endl;
     }
 
-    int arr2[] = { 1, 4, 4, 3, 2, 3 };
+    int arr2[] = {1, 4, 4, 3, 2, 3};
     if (s.duplicate(arr2, NELEM(arr2), &dup)) {
         cout << "arr2 dup: " << dup << endl;
     } else {

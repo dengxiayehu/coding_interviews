@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 
-#define NELEM(arr) (sizeof(arr)/sizeof(arr[0]))
+#define NELEM(arr) (sizeof(arr) / sizeof(arr[0]))
 
 using namespace std;
 
 class Solution {
 public:
-    void FindNumsAppearOnce(vector<int> data, int* num1, int *num2) {
+    void FindNumsAppearOnce(vector<int> data, int* num1, int* num2) {
         if (data.size() < 2 || !num1 || !num2) {
             // 非法的输入，此时不可能找到两个仅出现一次的数字。
             return;
@@ -33,8 +33,8 @@ public:
 private:
     static int get_lowest_bit_index(int xor_val) {
         int mask = 1;
-        for (int i = 0; i < sizeof(int)*8; i++) {
-            if (mask&xor_val) {
+        for (int i = 0; i < sizeof(int) * 8; i++) {
+            if (mask & xor_val) {
                 return i;
             }
             mask <<= 1;
@@ -43,23 +43,22 @@ private:
     }
 
     static bool is_bit_set(int xor_val, int index) {
-        return xor_val&(1<<index);
+        return xor_val & (1 << index);
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 1, 1, 2, 3, 3, 4 };
+        int arr[] = {1, 1, 2, 3, 3, 4};
         int num1, num2;
-        Solution().FindNumsAppearOnce(vector<int>(arr, arr+NELEM(arr)), &num1, &num2);
+        Solution().FindNumsAppearOnce(vector<int>(arr, arr + NELEM(arr)), &num1, &num2);
         cout << num1 << ", " << num2 << endl;
     }
 
     {
-        int arr[] = { 2, 4 };
+        int arr[] = {2, 4};
         int num1, num2;
-        Solution().FindNumsAppearOnce(vector<int>(arr, arr+NELEM(arr)), &num1, &num2);
+        Solution().FindNumsAppearOnce(vector<int>(arr, arr + NELEM(arr)), &num1, &num2);
         cout << num1 << ", " << num2 << endl;
     }
 

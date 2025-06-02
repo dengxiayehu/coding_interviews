@@ -1,6 +1,6 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -18,19 +18,19 @@ public:
     }
 
 private:
-    void permutaion_core(string& str, int idx, vector<string> &res) {
+    void permutaion_core(string& str, int idx, vector<string>& res) {
         if (idx == str.length()) {
             res.push_back(str);
             return;
         }
 
-        permutaion_core(str, idx+1, res);
-        for (int i = idx+1; i < str.length(); i++) {
+        permutaion_core(str, idx + 1, res);
+        for (int i = idx + 1; i < str.length(); i++) {
             char t = str[idx];
             str[idx] = str[i];
             str[i] = t;
 
-            permutaion_core(str, idx+1, res);
+            permutaion_core(str, idx + 1, res);
 
             t = str[idx];
             str[idx] = str[i];
@@ -39,8 +39,7 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
         vector<string> res = Solution().Permutation("abc");
         for (vector<string>::iterator it = res.begin(); it != res.end(); it++) {

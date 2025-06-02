@@ -36,7 +36,7 @@ CMyString::CMyString(const CMyString& str) : CMyString(str.m_pData) {
 
 CMyString::~CMyString() {
     if (m_pData != nullptr) {
-        delete [] m_pData;
+        delete[] m_pData;
         m_pData = nullptr;
     }
 }

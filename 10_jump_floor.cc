@@ -22,13 +22,12 @@ public:
             floor_minus_2 = floor_minus_1;
             floor_minus_1 = floor;
         }
-        
+
         return floor;
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().jumpFloor(-1) << endl;
     cout << Solution().jumpFloor(0) << endl;
     cout << Solution().jumpFloor(1) << endl;

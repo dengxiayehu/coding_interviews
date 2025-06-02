@@ -4,10 +4,10 @@ using namespace std;
 
 struct TreeLinkNode {
     int val;
-    struct TreeLinkNode *left;
-    struct TreeLinkNode *right;
-    struct TreeLinkNode *next;
-    TreeLinkNode(int x) :val(x), left(NULL), right(NULL), next(NULL) {
+    struct TreeLinkNode* left;
+    struct TreeLinkNode* right;
+    struct TreeLinkNode* next;
+    TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {
     }
 };
 
@@ -26,15 +26,15 @@ public:
 
         if (pNode->right) {
             // This node has right node, walk through the right tree to get the leftest node.
-            TreeLinkNode *node = pNode->right;
+            TreeLinkNode* node = pNode->right;
             while (node && node->left) {
                 node = node->left;
             }
             return node;
         } else {
             // 注意结点的层次关系，需要parent和current的配合，而不是parent与pNode。
-            TreeLinkNode *parent = pNode->next;
-            TreeLinkNode *current = pNode;
+            TreeLinkNode* parent = pNode->next;
+            TreeLinkNode* current = pNode;
             while (parent && parent->right == current) {
                 current = parent;
                 parent = parent->next;
@@ -44,11 +44,10 @@ public:
     }
 };
 
-void init_tree(TreeLinkNode *nodes[9])
-{
+void init_tree(TreeLinkNode* nodes[9]) {
     for (int i = 1; i <= 9; i++) {
-        TreeLinkNode *node = new TreeLinkNode(i);
-        nodes[i-1] = node;
+        TreeLinkNode* node = new TreeLinkNode(i);
+        nodes[i - 1] = node;
     }
     nodes[0]->left = nodes[1];
     nodes[0]->right = nodes[2];
@@ -76,25 +75,23 @@ void init_tree(TreeLinkNode *nodes[9])
     nodes[8]->next = nodes[4];
 }
 
-void destroy_tree(TreeLinkNode *nodes[9])
-{
+void destroy_tree(TreeLinkNode* nodes[9]) {
     for (int i = 1; i <= 9; i++) {
-        delete nodes[i-1];
+        delete nodes[i - 1];
     }
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     // 根据书上的示例创建一个包含指向父结点的二叉树。
-    TreeLinkNode *nodes[9];
+    TreeLinkNode* nodes[9];
     init_tree(nodes);
 
     for (int i = 0; i < 9; i++) {
-        TreeLinkNode *node = Solution().GetNext(nodes[i]);
+        TreeLinkNode* node = Solution().GetNext(nodes[i]);
         if (node) {
-            cout << static_cast<char>('a'+i) << "'s next is " << static_cast<char>(node->val+'a'-1) << endl;
+            cout << static_cast<char>('a' + i) << "'s next is " << static_cast<char>(node->val + 'a' - 1) << endl;
         } else {
-            cout << static_cast<char>('a'+i) << "'s next not found" << endl;
+            cout << static_cast<char>('a' + i) << "'s next not found" << endl;
         }
     }
 

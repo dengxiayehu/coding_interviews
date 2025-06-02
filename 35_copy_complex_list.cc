@@ -9,10 +9,10 @@ class Solution {
 public:
     RandomListNode* Clone(RandomListNode* pHead) {
         unordered_map<RandomListNode*, RandomListNode*> map;
-        RandomListNode *chead = NULL;
-        RandomListNode *ctail = NULL;
-        RandomListNode *node = pHead;
-        RandomListNode *tmp;
+        RandomListNode* chead = NULL;
+        RandomListNode* ctail = NULL;
+        RandomListNode* node = pHead;
+        RandomListNode* tmp;
         while (node) {
             // Clone "normal" list.
             tmp = new RandomListNode(node->label);
@@ -39,15 +39,14 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 1, 2, 3, 4, 5 };
+        int arr[] = {1, 2, 3, 4, 5};
         RandomListNode *head, *tail;
         create_list_by_array(arr, NELEM(arr), head, tail);
         random_list(head, 0, 2, 3, 1, 1, 4, -1);
         print_list(head);
-        RandomListNode *cloned = Solution().Clone(head);
+        RandomListNode* cloned = Solution().Clone(head);
         print_list(cloned);
         destroy_list(head);
         destroy_list(cloned);

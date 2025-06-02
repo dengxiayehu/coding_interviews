@@ -1,5 +1,6 @@
-#include <iostream>
 #include <string.h>
+
+#include <iostream>
 
 using namespace std;
 
@@ -10,17 +11,17 @@ public:
             return;
         }
 
-        char *str = new char[n+1];
+        char* str = new char[n + 1];
         memset(str, '0', n);
         str[n] = '\0';
 
         print_1_to_max_of_n_digits_core(str, n, 0);
 
-        delete [] str;
+        delete[] str;
     }
 
 private:
-    static void print_1_to_max_of_n_digits_core(char *str, int n, int idx) {
+    static void print_1_to_max_of_n_digits_core(char* str, int n, int idx) {
         if (str[idx] == '\0') {
             print(str);
             return;
@@ -28,12 +29,12 @@ private:
 
         for (char ch = '0'; ch <= '9'; ch++) {
             str[idx] = ch;
-            print_1_to_max_of_n_digits_core(str, n, idx+1);
+            print_1_to_max_of_n_digits_core(str, n, idx + 1);
         }
     }
 
-    static void print(const char *str) {
-        const char *p = str;
+    static void print(const char* str) {
+        const char* p = str;
         while (*p == '0') {
             p++;
         }
@@ -41,8 +42,7 @@ private:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution().print_1_to_max_of_n_digits(1);
     Solution().print_1_to_max_of_n_digits(2);
     Solution().print_1_to_max_of_n_digits(3);

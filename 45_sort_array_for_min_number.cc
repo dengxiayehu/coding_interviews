@@ -24,11 +24,11 @@ public:
         int i;
         for (i = 0; i < n; i++) {
             bool swap = false;
-            for (int j = n-1; j > i; j--) {
-                if (str_numbers[j]+str_numbers[j-1] < str_numbers[j-1]+str_numbers[j]) {
+            for (int j = n - 1; j > i; j--) {
+                if (str_numbers[j] + str_numbers[j - 1] < str_numbers[j - 1] + str_numbers[j]) {
                     string tmp(str_numbers[j]);
-                    str_numbers[j] = str_numbers[j-1];
-                    str_numbers[j-1] = tmp;
+                    str_numbers[j] = str_numbers[j - 1];
+                    str_numbers[j - 1] = tmp;
                     swap = true;
                 }
             }
@@ -47,31 +47,30 @@ public:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 3, 32, 321 };
-        cout << Solution().PrintMinNumber(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {3, 32, 321};
+        cout << Solution().PrintMinNumber(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     {
-        int arr[] = { 3, 3, 3 };
-        cout << Solution().PrintMinNumber(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {3, 3, 3};
+        cout << Solution().PrintMinNumber(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     {
-        int arr[] = { 1, 2, 3, 4, 5 };
-        cout << Solution().PrintMinNumber(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {1, 2, 3, 4, 5};
+        cout << Solution().PrintMinNumber(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     {
-        int arr[] = { 5, 4, 3, 2, 1 };
-        cout << Solution().PrintMinNumber(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {5, 4, 3, 2, 1};
+        cout << Solution().PrintMinNumber(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     {
-        int arr[] = { 1, 3, 5, 7, 9, 2, 4, 6, 8, 10 };
-        cout << Solution().PrintMinNumber(vector<int>(arr, arr+NELEM(arr))) << endl;
+        int arr[] = {1, 3, 5, 7, 9, 2, 4, 6, 8, 10};
+        cout << Solution().PrintMinNumber(vector<int>(arr, arr + NELEM(arr))) << endl;
     }
 
     return 0;

@@ -1,6 +1,6 @@
 #include <iostream>
-#include <strstream>
 #include <string>
+#include <strstream>
 
 #include "tree_util.h"
 
@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution {
 public:
-    char* Serialize(TreeNode *root) {
+    char* Serialize(TreeNode* root) {
         if (!root) {
             return NULL;
         }
@@ -18,19 +18,19 @@ public:
         return strm_.str();
     }
 
-    TreeNode* Deserialize(char *str) {
+    TreeNode* Deserialize(char* str) {
         if (!str || !*str) {
             return NULL;
         }
 
-        TreeNode *node = NULL;
+        TreeNode* node = NULL;
         deserialize_core(&node, &str);
 
         return node;
     }
 
 private:
-    static void searialize_core(TreeNode *node, ostrstream &strm) {
+    static void searialize_core(TreeNode* node, ostrstream& strm) {
         if (!node) {
             strm << "#,";
             return;
@@ -40,7 +40,7 @@ private:
         searialize_core(node->right, strm);
     }
 
-    static void deserialize_core(TreeNode **node, char **str) {
+    static void deserialize_core(TreeNode** node, char** str) {
         int val;
         if (read_node(val, str)) {
             *node = new TreeNode(val);
@@ -49,17 +49,17 @@ private:
         }
     }
 
-    static bool read_node(int &val, char **str) {
-        char *p = *str;
+    static bool read_node(int& val, char** str) {
+        char* p = *str;
         if (*p == '#') {
-            if (*(p+1) == ',') {
+            if (*(p + 1) == ',') {
                 *str += 2;
             }
             return false;
         }
 
-        char *q = strchr(p, ',');
-        if (!q) { // error format
+        char* q = strchr(p, ',');
+        if (!q) {  // error format
             return false;
         }
 
@@ -70,7 +70,7 @@ private:
             ret = false;
         }
         *q = ',';
-        *str += (q-p+1);
+        *str += (q - p + 1);
         return ret;
     }
 
@@ -78,15 +78,14 @@ private:
     std::ostrstream strm_;
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 10, -1, 11, -1, 12, -1, -1 };
-        TreeNode *root = create_pre_order(arr, NELEM(arr));
-        char *str = Solution().Serialize(root);
+        int arr[] = {10, -1, 11, -1, 12, -1, -1};
+        TreeNode* root = create_pre_order(arr, NELEM(arr));
+        char* str = Solution().Serialize(root);
         pre_order(root);
         cout << "Searalized string: " << str << endl;
-        TreeNode *searialized = Solution().Deserialize(str);
+        TreeNode* searialized = Solution().Deserialize(str);
         pre_order(searialized);
         delete_postorder(root);
         delete_postorder(searialized);

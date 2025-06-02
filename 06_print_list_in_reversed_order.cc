@@ -1,14 +1,13 @@
 #include <iostream>
-#include <vector>
 #include <stack>
+#include <vector>
 
 using namespace std;
 
 struct ListNode {
     int val;
-    struct ListNode *next;
-    ListNode(int x) :
-        val(x), next(NULL) {
+    struct ListNode* next;
+    ListNode(int x) : val(x), next(NULL) {
     }
 };
 
@@ -34,17 +33,16 @@ public:
     }
 };
 
-int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode *&tail)
-{
+int create_list_by_array(const int arr[], const int n, ListNode*& head, ListNode*& tail) {
     head = NULL;
     tail = NULL;
 
     if (!arr || n <= 0) {
         return -1;
     }
-    
+
     for (int i = 0; i < n; i++) {
-        ListNode *node = new ListNode(arr[i]);
+        ListNode* node = new ListNode(arr[i]);
         if (!head) {
             head = node;
         } else {
@@ -56,8 +54,7 @@ int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode
     return 0;
 }
 
-int destroy_list(ListNode *&head)
-{
+int destroy_list(ListNode*& head) {
     ListNode *p, *q;
     p = head;
     while (p) {
@@ -70,11 +67,10 @@ int destroy_list(ListNode *&head)
     return 0;
 }
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     ListNode *head, *tail;
-    const int arr[] = { 1, 2, 3, 4, 5 };
-    const int n = sizeof(arr)/sizeof(arr[0]);
+    const int arr[] = {1, 2, 3, 4, 5};
+    const int n = sizeof(arr) / sizeof(arr[0]);
     create_list_by_array(arr, n, head, tail);
     vector<int> res = Solution().printListFromTailToHead(head);
     for (vector<int>::iterator it = res.begin(); it != res.end(); it++) {

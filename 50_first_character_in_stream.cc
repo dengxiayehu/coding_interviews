@@ -1,5 +1,6 @@
-#include <iostream>
 #include <limits.h>
+
+#include <iostream>
 
 using namespace std;
 
@@ -26,8 +27,8 @@ public:
         char res = '#';
         int min_idx = INT_MAX;
         for (int i = 0; i < 256; i++) {
-            if (hash_table_[i] >= 0) { // 字符i出现了一次
-                if (hash_table_[i] <= min_idx) { // 字符i出现的位置比较靠前
+            if (hash_table_[i] >= 0) {            // 字符i出现了一次
+                if (hash_table_[i] <= min_idx) {  // 字符i出现的位置比较靠前
                     min_idx = hash_table_[i];
                     res = static_cast<char>(i);
                 }
@@ -41,8 +42,7 @@ private:
     int index_;
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     Solution s;
     s.Insert('g');
     cout << s.FirstAppearingOnce() << endl;

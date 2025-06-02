@@ -2,24 +2,25 @@
 
 using namespace std;
 
-#define NELEM(arr) (sizeof(arr)/sizeof(arr[0]))
+#define NELEM(arr) (sizeof(arr) / sizeof(arr[0]))
 
 struct ListNode {
     int val;
-    ListNode *next;
-    ListNode(int v) : val(v), next(NULL) { }
+    ListNode* next;
+    ListNode(int v) : val(v), next(NULL) {
+    }
 };
 
 class Solution {
 public:
-    void delete_node(ListNode **head, ListNode *to_delete) {
+    void delete_node(ListNode** head, ListNode* to_delete) {
         if (!head || !*head || !to_delete) {
             return;
         }
 
         // Suppose to_delete is in the list, otherwise we need to check it with O(n).
         if (to_delete->next) {
-            ListNode *next = to_delete->next;
+            ListNode* next = to_delete->next;
             to_delete->val = next->val;
             to_delete->next = next->next;
             delete next;
@@ -29,7 +30,7 @@ public:
             *head = NULL;
         } else {
             // Delete the tail.
-            ListNode *p = *head;
+            ListNode* p = *head;
             while (p->next != to_delete) {
                 p = p->next;
             }
@@ -39,8 +40,7 @@ public:
     }
 };
 
-int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode *&tail)
-{
+int create_list_by_array(const int arr[], const int n, ListNode*& head, ListNode*& tail) {
     head = NULL;
     tail = NULL;
 
@@ -49,7 +49,7 @@ int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode
     }
 
     for (int i = 0; i < n; i++) {
-        ListNode *node = new ListNode(arr[i]);
+        ListNode* node = new ListNode(arr[i]);
         if (!head) {
             head = node;
         } else {
@@ -61,8 +61,7 @@ int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode
     return 0;
 }
 
-int destroy_list(ListNode *&head)
-{
+int destroy_list(ListNode*& head) {
     ListNode *p, *q;
     p = head;
     while (p) {
@@ -75,9 +74,8 @@ int destroy_list(ListNode *&head)
     return 0;
 }
 
-void print_list(ListNode *head)
-{
-    ListNode *p = head;
+void print_list(ListNode* head) {
+    ListNode* p = head;
     while (p) {
         cout << p->val << " ";
         p = p->next;
@@ -85,18 +83,17 @@ void print_list(ListNode *head)
     cout << endl;
 }
 
-int main(int argc, char const *argv[])
-{
-    int arr[] = { 1 };
+int main(int argc, char const* argv[]) {
+    int arr[] = {1};
     ListNode *head, *tail;
     create_list_by_array(arr, NELEM(arr), head, tail);
     Solution().delete_node(&head, head);
     print_list(head);
     destroy_list(head);
 
-    int arr1[] = { 1, 2, 3, 4, 5 };
+    int arr1[] = {1, 2, 3, 4, 5};
     create_list_by_array(arr1, NELEM(arr1), head, tail);
-    ListNode *p = head->next->next->next;
+    ListNode* p = head->next->next->next;
     Solution().delete_node(&head, p);
     print_list(head);
     destroy_list(head);

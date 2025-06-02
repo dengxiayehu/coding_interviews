@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ public:
             if (res == 0) {
                 return 0;
             }
-            return 1/res;
+            return 1 / res;
         } else {
             return res;
         }
@@ -34,10 +34,10 @@ private:
             return 1;
         }
 
-        if (exponent&1) {
-            return base*power_core(base*base, exponent>>1);
+        if (exponent & 1) {
+            return base * power_core(base * base, exponent >> 1);
         } else {
-            return power_core(base*base, exponent>>1);
+            return power_core(base * base, exponent >> 1);
         }
     }
 
@@ -51,8 +51,7 @@ private:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().Power(2, 4) << endl;
     cout << Solution().Power(0, 0) << endl;
     cout << Solution().Power(0, 2) << endl;

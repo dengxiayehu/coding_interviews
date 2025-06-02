@@ -2,7 +2,8 @@
 
 #include "./test_helper.h"
 
-class Solution {
+// leetcode 120
+class Solution03 {
 public:
     bool duplicate(int numbers[], int length, int* duplication) {
         // 快速校验
@@ -35,7 +36,7 @@ public:
 };
 
 TEST(ut_03, DuplicationInArray) {
-    Solution s;
+    Solution03 s;
     int duplication = 0;
 
     // 多个重复的数字
@@ -44,19 +45,23 @@ TEST(ut_03, DuplicationInArray) {
     EXPECT_THAT(duplication, AnyOfArray({2, 3}));
 
     // 一个重复的数字
+    duplication = 0;
     std::vector<int> numbers1 = {2, 3, 1, 0, 2, 5};
     EXPECT_TRUE(s.duplicate(numbers1.data(), numbers1.size(), &duplication));
     EXPECT_THAT(duplication, AnyOfArray({2}));
 
     // 不包含重复的数字
+    duplication = 0;
     std::vector<int> numbers2 = {1, 0, 2, 5, 3};
     EXPECT_FALSE(s.duplicate(numbers2.data(), numbers2.size(), &duplication));
 
     // 长度为 n 的数组中包含 [0, n-1] 之外的数字
+    duplication = 0;
     std::vector<int> numbers3 = {2, 3, 1, 0, 2, 5, 3, -1};
     EXPECT_FALSE(s.duplicate(numbers3.data(), numbers3.size(), &duplication));
 
     // 输入空指针
+    duplication = 0;
     std::vector<int> numbers4;
     EXPECT_FALSE(s.duplicate(numbers4.data(), numbers3.size(), &duplication));
 }

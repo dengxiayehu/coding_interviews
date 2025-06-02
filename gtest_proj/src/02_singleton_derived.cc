@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+
 #include <iostream>
 
 // 单例工具类
@@ -34,6 +35,7 @@ public:
 // 添加工具类为友元用来构造子类对象
 class FrenchPresident : public President {
     friend class ISingleton<FrenchPresident>;
+
 private:
     FrenchPresident() {
         std::cout << "FrenchPresident ctor" << std::endl;
@@ -51,6 +53,7 @@ public:
 
 class AmericanPresident : public President {
     friend class ISingleton<AmericanPresident>;
+
 private:
     AmericanPresident() {
         std::cout << "AmericanPresident ctor" << std::endl;

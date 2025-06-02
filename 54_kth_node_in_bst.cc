@@ -10,13 +10,13 @@ public:
         if (k <= 0) {
             return NULL;
         }
-        TreeNode *res = NULL;
+        TreeNode* res = NULL;
         kth_node_core(pRoot, k, res);
         return res;
     }
 
 private:
-    static void kth_node_core(TreeNode *node, int &k, TreeNode *&res) {
+    static void kth_node_core(TreeNode* node, int& k, TreeNode*& res) {
         if (!node || k == 0) {
             return;
         }
@@ -29,13 +29,12 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     {
-        int arr[] = { 5, 3, 2, -1, -1, 4, -1, -1, 7, 6, -1, -1, 8, -1, -1 };
+        int arr[] = {5, 3, 2, -1, -1, 4, -1, -1, 7, 6, -1, -1, 8, -1, -1};
         TreeNode* root = create_pre_order(arr, NELEM(arr));
         pre_order(root);
-        TreeNode *res = Solution().KthNode(root, 3);
+        TreeNode* res = Solution().KthNode(root, 3);
         if (res) {
             cout << res->val << endl;
         } else {

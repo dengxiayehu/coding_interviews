@@ -9,36 +9,35 @@ public:
             return 0;
         }
 
-        bool *v = new bool[rows*cols]();
+        bool* v = new bool[rows * cols]();
 
         int res = moving_count_core(threshold, rows, cols, v, 0, 0);
 
-        delete [] v;
+        delete[] v;
 
         return res;
     }
 
 private:
-    int moving_count_core(const int threshold, const int rows, const int cols, bool v[],
-                          const int i, const int j) {
-        if (v[i*cols+j] || i < 0 || i >= rows || j < 0 || j >= cols ||
-            get_digit_sum(i)+get_digit_sum(j) > threshold) {
+    int moving_count_core(const int threshold, const int rows, const int cols, bool v[], const int i, const int j) {
+        if (v[i * cols + j] || i < 0 || i >= rows || j < 0 || j >= cols ||
+            get_digit_sum(i) + get_digit_sum(j) > threshold) {
             return 0;
         }
 
-        v[i*cols+j] = true;
+        v[i * cols + j] = true;
 
-        return 1 + moving_count_core(threshold, rows, cols, v, i-1, j) +
-                   moving_count_core(threshold, rows, cols, v, i+1, j) +
-                   moving_count_core(threshold, rows, cols, v, i, j-1) +
-                   moving_count_core(threshold, rows, cols, v, i, j+1);
+        return 1 + moving_count_core(threshold, rows, cols, v, i - 1, j) +
+               moving_count_core(threshold, rows, cols, v, i + 1, j) +
+               moving_count_core(threshold, rows, cols, v, i, j - 1) +
+               moving_count_core(threshold, rows, cols, v, i, j + 1);
     }
 
     static int get_digit_sum(int n) {
         int sum = 0;
 
         while (n) {
-            sum += n%10;
+            sum += n % 10;
             n /= 10;
         }
 
@@ -46,8 +45,7 @@ private:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     cout << Solution().movingCount(4, 6, 6) << endl;
 
     return 0;

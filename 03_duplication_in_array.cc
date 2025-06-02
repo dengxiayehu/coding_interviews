@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define NELEM(arr) sizeof(arr)/sizeof(arr[0])
+#define NELEM(arr) sizeof(arr) / sizeof(arr[0])
 
 using namespace std;
 
@@ -28,7 +28,7 @@ public:
         int m;
         int t;
         for (int i = 0; i < length; i++) {
-            for ( ; ; ) {
+            for (;;) {
                 m = numbers[i];
                 if (m == i) {
                     break;
@@ -50,13 +50,12 @@ public:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution s;
     bool res;
     int dup;
 
-    int numbers[] = { 2, 3, 1, 0, 2, 5, 3 };
+    int numbers[] = {2, 3, 1, 0, 2, 5, 3};
     cout << "{ 2, 3, 1, 0, 2, 5, 3 }: ";
     res = s.duplicate(numbers, NELEM(numbers), &dup);
     if (res) {
@@ -65,7 +64,7 @@ int main(int argc, char const *argv[])
         cout << "no dup" << endl;
     }
 
-    int numbers1[] = { 2, 3, 1, 0, 2, 5 };
+    int numbers1[] = {2, 3, 1, 0, 2, 5};
     cout << "{ 2, 3, 1, 0, 2, 5 }: ";
     res = s.duplicate(numbers1, NELEM(numbers1), &dup);
     if (res) {
@@ -74,7 +73,7 @@ int main(int argc, char const *argv[])
         cout << "no dup" << endl;
     }
 
-    int numbers2[] = { 1, 0, 2, 5, 3 };
+    int numbers2[] = {1, 0, 2, 5, 3};
     cout << "{ 1, 0, 2, 5, 3 } ";
     res = s.duplicate(numbers2, NELEM(numbers2), &dup);
     if (res) {
@@ -83,7 +82,7 @@ int main(int argc, char const *argv[])
         cout << "no dup" << endl;
     }
 
-    int numbers3[] = { 2, 3, 1, 0, 2, 5, 3, 9 };
+    int numbers3[] = {2, 3, 1, 0, 2, 5, 3, 9};
     cout << "{ 2, 3, 1, 0, 2, 5, 3, 9 } ";
     res = s.duplicate(numbers3, NELEM(numbers3), &dup);
     if (res) {
@@ -92,7 +91,7 @@ int main(int argc, char const *argv[])
         cout << "no dup" << endl;
     }
 
-    int numbers4[] = { 2, 3, 1, 0, 2, 5, 3, -1 };
+    int numbers4[] = {2, 3, 1, 0, 2, 5, 3, -1};
     cout << "{ 2, 3, 1, 0, 2, 5, 3, -1 } ";
     res = s.duplicate(numbers4, NELEM(numbers4), &dup);
     if (res) {

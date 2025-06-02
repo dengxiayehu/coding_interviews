@@ -3,13 +3,14 @@
 
 using namespace std;
 
-#define NELEM(arr) (sizeof(arr)/sizeof(arr[0]))
+#define NELEM(arr) (sizeof(arr) / sizeof(arr[0]))
 
 struct TreeNode {
     int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {
+    }
 };
 
 class Solution {
@@ -19,16 +20,13 @@ public:
             return NULL;
         }
 
-        return reConstructBinaryTreeCore(
-            &pre[0], 0, pre.size()-1, &vin[0], 0, vin.size()-1);
+        return reConstructBinaryTreeCore(&pre[0], 0, pre.size() - 1, &vin[0], 0, vin.size() - 1);
     }
 
 private:
-    TreeNode *reConstructBinaryTreeCore(
-        int pre[], int startpre, int endpre,
-        int in[], int startin, int endin) {
+    TreeNode* reConstructBinaryTreeCore(int pre[], int startpre, int endpre, int in[], int startin, int endin) {
         int node_val = pre[startpre];
-        TreeNode *node = new TreeNode(node_val); // root node
+        TreeNode* node = new TreeNode(node_val);  // root node
         // Find this root node in inorder.
         int iin;
         for (iin = startin; iin <= endin; iin++) {
@@ -41,17 +39,16 @@ private:
             return NULL;
         }
 
-        int left_node_num = iin-startin; // 左子树结点个数
-        int right_node_num = endin-iin; // 右子数结点个数
-        node->left = reConstructBinaryTreeCore(pre, startpre+1, startpre+left_node_num, in, startin, iin-1);
-        node->right = reConstructBinaryTreeCore(pre, endpre-right_node_num+1, endpre, in, iin+1, endin);
-        
+        int left_node_num = iin - startin;  // 左子树结点个数
+        int right_node_num = endin - iin;   // 右子数结点个数
+        node->left = reConstructBinaryTreeCore(pre, startpre + 1, startpre + left_node_num, in, startin, iin - 1);
+        node->right = reConstructBinaryTreeCore(pre, endpre - right_node_num + 1, endpre, in, iin + 1, endin);
+
         return node;
     }
 };
 
-void postorder_and_delete(TreeNode *node)
-{
+void postorder_and_delete(TreeNode* node) {
     if (node) {
         postorder_and_delete(node->left);
         postorder_and_delete(node->right);
@@ -60,14 +57,13 @@ void postorder_and_delete(TreeNode *node)
     }
 }
 
-int main(int argc, char const *argv[])
-{
-    int pre[] = { 1, 2, 4, 7, 3, 5, 6, 8 };
-    vector<int> vpre(pre, pre+NELEM(pre));
-    int in[] = { 4, 7, 2, 1, 5, 3, 8, 6 };
-    vector<int> vin(in, in+NELEM(in));
+int main(int argc, char const* argv[]) {
+    int pre[] = {1, 2, 4, 7, 3, 5, 6, 8};
+    vector<int> vpre(pre, pre + NELEM(pre));
+    int in[] = {4, 7, 2, 1, 5, 3, 8, 6};
+    vector<int> vin(in, in + NELEM(in));
 
-    TreeNode *root = Solution().reConstructBinaryTree(vpre, vin);
+    TreeNode* root = Solution().reConstructBinaryTree(vpre, vin);
     postorder_and_delete(root);
 
     return 0;

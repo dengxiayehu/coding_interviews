@@ -17,8 +17,8 @@ public:
 
         int len1 = GetListLength(pHead1);
         int len2 = GetListLength(pHead2);
-        ListNode *longList = pHead1;
-        ListNode *shortList = pHead2;
+        ListNode* longList = pHead1;
+        ListNode* shortList = pHead2;
         int diff = len1 - len2;
         if (diff < 0) {
             longList = pHead2;
@@ -40,7 +40,7 @@ public:
     }
 
 private:
-    static int GetListLength(const ListNode *node) {
+    static int GetListLength(const ListNode* node) {
         int length = 0;
         while (node) {
             node = node->next;
@@ -50,7 +50,6 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char* argv[]) {
     return 0;
 }

@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    void reOrderArray(vector<int> &array) {
+    void reOrderArray(vector<int>& array) {
         if (array.empty()) {
             return;
         }
@@ -17,9 +17,9 @@ public:
 private:
     typedef bool (*Func)(const int v);
 
-    void reorder_array_core(vector<int> &array, Func func) {
+    void reorder_array_core(vector<int>& array, Func func) {
         int i = 0;
-        int j = array.size()-1;
+        int j = array.size() - 1;
         while (i != j) {
             while (i < j && func(array[i])) {
                 ++i;
@@ -32,20 +32,19 @@ private:
     }
 
     static bool is_odd(const int v) {
-        return v&1;
+        return v & 1;
     }
 
-    static void swap(vector<int> &array, int i, int j) {
+    static void swap(vector<int>& array, int i, int j) {
         int t = array[i];
         array[i] = array[j];
         array[j] = t;
     }
 };
 
-int main(int argc, char const *argv[])
-{
-    int arr[] = { 1, 3, 3, 4, 5, 6 };
-    vector<int> v(arr, arr+NELEM(arr));
+int main(int argc, char const* argv[]) {
+    int arr[] = {1, 3, 3, 4, 5, 6};
+    vector<int> v(arr, arr + NELEM(arr));
     Solution().reOrderArray(v);
     for (vector<int>::iterator it = v.begin(); it != v.end(); it++) {
         cout << *it << " ";

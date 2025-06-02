@@ -3,11 +3,10 @@
 using namespace std;
 
 struct ListNode {
-	int val;
-	struct ListNode *next;
-	ListNode(int x) :
-        val(x), next(NULL) {
-	}
+    int val;
+    struct ListNode* next;
+    ListNode(int x) : val(x), next(NULL) {
+    }
 };
 
 class Solution {
@@ -18,9 +17,9 @@ public:
             return NULL;
         }
 
-        ListNode *fast = pListHead;
-        ListNode *slow = pListHead;
-        for (unsigned i = 0; i < k-1 && fast; i++) {
+        ListNode* fast = pListHead;
+        ListNode* slow = pListHead;
+        for (unsigned i = 0; i < k - 1 && fast; i++) {
             fast = fast->next;
         }
         // Check if fast is already NULL, that means the kth node to tail not exists.
@@ -37,8 +36,7 @@ public:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution s;
     ListNode* p = NULL;
 
@@ -50,11 +48,11 @@ int main(int argc, char const *argv[])
     }
 
     // Create a list by array.
-    const int arr[] = { 1, 2, 3, 4, 5 };
-    const int n = sizeof(arr)/sizeof(arr[0]);
+    const int arr[] = {1, 2, 3, 4, 5};
+    const int n = sizeof(arr) / sizeof(arr[0]);
     ListNode *head = NULL, *tail = NULL;
     for (unsigned i = 0; i < n; i++) {
-        ListNode *node = new ListNode(arr[i]);
+        ListNode* node = new ListNode(arr[i]);
         if (!head) {
             head = node;
         } else {
@@ -120,7 +118,7 @@ int main(int argc, char const *argv[])
     }
 
     // Destroy the list.
-    ListNode *q = NULL;
+    ListNode* q = NULL;
     p = head;
     while (p) {
         q = p->next;

@@ -1,7 +1,8 @@
-#include <iostream>
 #include <ctype.h>
-#include <string>
 #include <limits.h>
+
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -40,18 +41,18 @@ public:
                 return 0;
             }
 
-            int num = ch-'0';
+            int num = ch - '0';
             // Check overflow.
             if (negative) {
-                if ((res < INT_MAX/10) || (res == INT_MAX/10 && num <= 8)) {
-                    res = res*10 + num;
+                if ((res < INT_MAX / 10) || (res == INT_MAX / 10 && num <= 8)) {
+                    res = res * 10 + num;
                 } else {
                     // Negative overflow.
                     return INT_MIN;
                 }
             } else {
-                if ((res < INT_MAX/10) || (res == INT_MAX/10 && num <= 7)) {
-                    res = res*10 + num;
+                if ((res < INT_MAX / 10) || (res == INT_MAX / 10 && num <= 7)) {
+                    res = res * 10 + num;
                 } else {
                     // Positive overflow.
                     return INT_MAX;
@@ -65,8 +66,7 @@ public:
     }
 };
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const* argv[]) {
     Solution s;
     string str;
 
