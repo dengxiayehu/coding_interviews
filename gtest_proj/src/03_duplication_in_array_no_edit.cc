@@ -2,6 +2,7 @@
 
 #include "./test_helper.h"
 
+// 本题 duplicate_binary_count 算法能解决 leetcode 287 问题，但不是最优，因为该题有限制只有一个重复的数字
 class Solution03_1 {
 public:
     bool duplicate(int numbers[], int length, int* duplication) {
