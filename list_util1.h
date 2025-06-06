@@ -1,19 +1,16 @@
-#ifndef LIST_UTIL1_H
-#define LIST_UTIL1_H
+#pragma once
 
 #include <iostream>
-
-#include "macro_util.h"
 
 struct ListNode {
     int val;
     ListNode *next;
     ListNode() : val(0), next(NULL) { }
-    ListNode(int v) : val(v), next(NULL) { }
+    explicit ListNode(int v) : val(v), next(NULL) {
+    }
 };
 
-static int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode *&tail)
-{
+inline int create_list_by_array(const int arr[], const int n, ListNode*& head, ListNode*& tail) {
     head = NULL;
     tail = NULL;
 
@@ -36,15 +33,14 @@ static int create_list_by_array(const int arr[], const int n, ListNode *&head, L
     return 0;
 }
 
-static int destroy_list(ListNode *&head)
-{
-    delete [] head;
+inline int destroy_list(ListNode*& head) {
+    delete[] head;
 
     return 0;
 }
 
-static void print_list(ListNode *head)
-{
+// NOTE: should not use this function to print loop link list
+inline void print_list(ListNode* head) {
     ListNode *p = head;
     while (p) {
         std::cout << p->val << " ";
@@ -52,5 +48,3 @@ static void print_list(ListNode *head)
     }
     std::cout << std::endl;
 }
-
-#endif

@@ -1,6 +1,3 @@
-#ifndef MACRO_UTIL
-#define MACRO_UTIL
+#pragma once
 
 #define NELEM(arr) (sizeof(arr)/sizeof(arr[0]))
-
-#endif

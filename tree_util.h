@@ -1,5 +1,4 @@
-#ifndef TREE_UTIL_H
-#define TREE_UTIL_H
+#pragma once
 
 #include <iostream>
 #include <queue>
@@ -10,16 +9,14 @@
 #define WALK_WITH_STACK 1
 
 struct TreeNode {
-	int val;
-	struct TreeNode *left;
-	struct TreeNode *right;
-	TreeNode(int x) :
-		val(x), left(NULL), right(NULL) {
-	}
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    explicit TreeNode(int x) : val(x), left(NULL), right(NULL) {
+    }
 };
 
-static TreeNode *__create_pre_order(std::queue<int> &q)
-{
+inline TreeNode* __create_pre_order(std::queue<int>& q) {
     if (q.empty()) {
         return NULL;
     }
@@ -37,8 +34,7 @@ static TreeNode *__create_pre_order(std::queue<int> &q)
     return node;
 }
 
-static TreeNode *create_pre_order(int arr[], const int n)
-{
+inline TreeNode* create_pre_order(int arr[], const int n) {
     std::queue<int> q;
     for (int i = 0; i < n; i++) {
         q.push(arr[i]);
@@ -47,13 +43,12 @@ static TreeNode *create_pre_order(int arr[], const int n)
     return __create_pre_order(q);
 }
 
-static void pre_order(TreeNode *root)
-{
+inline void pre_order(TreeNode* root) {
     if (!root) {
         return;
     }
 
-#if ! defined(WALK_WITH_STACK) || (WALK_WITH_STACK == 0)
+#if !defined(WALK_WITH_STACK) || (WALK_WITH_STACK == 0)
     std::cout << root->val << " ";
     pre_order(root->left);
     pre_order(root->right);
@@ -62,10 +57,10 @@ static void pre_order(TreeNode *root)
     TreeNode *node = root;
     std::stack<TreeNode*> s;
     while (node || !s.empty()) {
-        if (node) { // find a node in tree, print it first
+        if (node) {  // find a node in tree, print it first
             std::cout << node->val << " ";
-            s.push(node); // push this node into stack
-            node = node->left; // try left sub-tree first
+            s.push(node);       // push this node into stack
+            node = node->left;  // try left sub-tree first
         } else {
             // walk right sub-tree
             node = s.top();
@@ -77,8 +72,7 @@ static void pre_order(TreeNode *root)
 #endif
 }
 
-static void delete_postorder(TreeNode *&node)
-{
+inline void delete_postorder(TreeNode*& node) {
     if (!node) {
         return;
     }
@@ -88,5 +82,3 @@ static void delete_postorder(TreeNode *&node)
     delete node;
     node = NULL;
 }
-
-#endif

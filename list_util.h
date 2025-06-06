@@ -1,19 +1,19 @@
-#ifndef LIST_UTIL
-#define LIST_UTIL
+#pragma once
 
-#include <iostream>
 #include <stdio.h>
 
-#define NELEM(arr) (sizeof(arr)/sizeof(arr[0]))
+#include <iostream>
+
+#include "macro_util.h"
 
 struct ListNode {
     int val;
     ListNode *next;
-    ListNode(int v) : val(v), next(NULL) { }
+    explicit ListNode(int v) : val(v), next(NULL) {
+    }
 };
 
-static int create_list_by_array(const int arr[], const int n, ListNode *&head, ListNode *&tail)
-{
+inline int create_list_by_array(const int arr[], const int n, ListNode*& head, ListNode*& tail) {
     head = NULL;
     tail = NULL;
 
@@ -34,8 +34,7 @@ static int create_list_by_array(const int arr[], const int n, ListNode *&head, L
     return 0;
 }
 
-static int destroy_list(ListNode *&head)
-{
+inline int destroy_list(ListNode*& head) {
     ListNode *p, *q;
     p = head;
     while (p) {
@@ -48,8 +47,7 @@ static int destroy_list(ListNode *&head)
     return 0;
 }
 
-static void print_list(ListNode *head)
-{
+inline void print_list(ListNode* head) {
     ListNode *p = head;
     while (p) {
         std::cout << p->val << " ";
@@ -57,5 +55,3 @@ static void print_list(ListNode *head)
     }
     std::cout << std::endl;
 }
-
-#endif

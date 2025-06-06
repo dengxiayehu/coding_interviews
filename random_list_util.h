@@ -1,5 +1,4 @@
-#ifndef RANDOM_LIST_UTIL_H
-#define RANDOM_LIST_UTIL_H
+#pragma once
 
 #include <iostream>
 #include <cstdarg>
@@ -11,12 +10,11 @@ struct RandomListNode {
     struct RandomListNode *next, *random;
     RandomListNode() :
         next(NULL), random(NULL) { }
-    RandomListNode(int x) :
-        label(x), next(NULL), random(NULL) { }
+    explicit RandomListNode(int x) : label(x), next(NULL), random(NULL) {
+    }
 };
 
-static int create_list_by_array(const int arr[], const int n, RandomListNode *&head, RandomListNode *&tail)
-{
+inline int create_list_by_array(const int arr[], const int n, RandomListNode*& head, RandomListNode*& tail) {
     head = NULL;
     tail = NULL;
 
@@ -39,8 +37,7 @@ static int create_list_by_array(const int arr[], const int n, RandomListNode *&h
     return 0;
 }
 
-static int random_list(RandomListNode *root, ...)
-{
+inline int random_list(RandomListNode* root, ...) {
     va_list ap;
     va_start(ap, root);
 
@@ -63,15 +60,13 @@ out:
     return 0;
 }
 
-static int destroy_list(RandomListNode *&head)
-{
-    delete [] head;
+inline int destroy_list(RandomListNode*& head) {
+    delete[] head;
 
     return 0;
 }
 
-static void print_list(RandomListNode *head)
-{
+inline void print_list(RandomListNode* head) {
     RandomListNode *p = head;
     while (p) {
         std::cout << p << "@" << p->label;
@@ -83,5 +78,3 @@ static void print_list(RandomListNode *head)
     }
     std::cout << std::endl;
 }
-
-#endif
