@@ -24,12 +24,14 @@ public:
 TEST(ut_06, PrintLinkedListInReverseWithStack) {
     Solution06_1 s;
 
-    std::shared_ptr<ImmutableListNode> head(create_list(std::vector<int>{1, 2, 3}), destroy_list);
+    auto deletor = [](ImmutableListNode* h) { destroy_list(h); };
+
+    std::shared_ptr<ImmutableListNode> head(create_list(std::vector<int>{1, 2, 3}), deletor);
     s.printLinkedListInReverse(head.get());
 
-    std::shared_ptr<ImmutableListNode> head1(create_list(std::vector<int>{1}), destroy_list);
+    std::shared_ptr<ImmutableListNode> head1(create_list(std::vector<int>{1}), deletor);
     s.printLinkedListInReverse(head1.get());
 
-    std::shared_ptr<ImmutableListNode> head2(nullptr, destroy_list);
+    std::shared_ptr<ImmutableListNode> head2(nullptr, deletor);
     s.printLinkedListInReverse(head2.get());
 }

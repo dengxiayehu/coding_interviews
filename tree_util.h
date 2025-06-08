@@ -12,19 +12,19 @@ struct TreeNode {
     int val;
     struct TreeNode* left;
     struct TreeNode* right;
-    explicit TreeNode(int x) : val(x), left(NULL), right(NULL) {
+    explicit TreeNode(int x) : val(x), left(nullptr), right(nullptr) {
     }
 };
 
 inline TreeNode* __create_pre_order(std::queue<int>& q) {
     if (q.empty()) {
-        return NULL;
+        return nullptr;
     }
 
     int v = q.front();
     q.pop();
     if (v == -1) {
-        return NULL;
+        return nullptr;
     }
 
     TreeNode *node = new TreeNode(v);
@@ -34,6 +34,7 @@ inline TreeNode* __create_pre_order(std::queue<int>& q) {
     return node;
 }
 
+// 前序遍历创建二叉数
 inline TreeNode* create_pre_order(int arr[], const int n) {
     std::queue<int> q;
     for (int i = 0; i < n; i++) {
@@ -43,6 +44,7 @@ inline TreeNode* create_pre_order(int arr[], const int n) {
     return __create_pre_order(q);
 }
 
+// 前序遍历打印二叉数，分递归法和非递归法
 inline void pre_order(TreeNode* root) {
     if (!root) {
         return;
@@ -72,6 +74,7 @@ inline void pre_order(TreeNode* root) {
 #endif
 }
 
+// 后序遍历删除二叉树
 inline void delete_postorder(TreeNode*& node) {
     if (!node) {
         return;
@@ -80,5 +83,5 @@ inline void delete_postorder(TreeNode*& node) {
     delete_postorder(node->left);
     delete_postorder(node->right);
     delete node;
-    node = NULL;
+    node = nullptr;
 }

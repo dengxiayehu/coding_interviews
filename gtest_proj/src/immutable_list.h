@@ -43,7 +43,7 @@ inline ImmutableListNode* create_list(const std::vector<int>& vec) {
     return head;
 }
 
-inline int destroy_list(ImmutableListNode* head) {
+inline int destroy_list(ImmutableListNode*& head) {
     ImmutableListNode *p, *q;
     p = head;
     while (p) {
@@ -51,6 +51,7 @@ inline int destroy_list(ImmutableListNode* head) {
         delete p;
         p = q;
     }
+    head = nullptr;
 
     return 0;
 }
