@@ -1,15 +1,6 @@
 #include <iostream>
 
-using namespace std;
-
-struct TreeLinkNode {
-    int val;
-    struct TreeLinkNode* left;
-    struct TreeLinkNode* right;
-    struct TreeLinkNode* next;
-    TreeLinkNode(int x) : val(x), left(NULL), right(NULL), next(NULL) {
-    }
-};
+#include "tree_link_node.h"
 
 class Solution {
 public:
@@ -44,54 +35,17 @@ public:
     }
 };
 
-void init_tree(TreeLinkNode* nodes[9]) {
-    for (int i = 1; i <= 9; i++) {
-        TreeLinkNode* node = new TreeLinkNode(i);
-        nodes[i - 1] = node;
-    }
-    nodes[0]->left = nodes[1];
-    nodes[0]->right = nodes[2];
-
-    nodes[1]->left = nodes[3];
-    nodes[1]->right = nodes[4];
-    nodes[1]->next = nodes[0];
-
-    nodes[2]->left = nodes[5];
-    nodes[2]->right = nodes[6];
-    nodes[2]->next = nodes[0];
-
-    nodes[3]->next = nodes[1];
-
-    nodes[4]->left = nodes[7];
-    nodes[4]->right = nodes[8];
-    nodes[4]->next = nodes[1];
-
-    nodes[5]->next = nodes[2];
-
-    nodes[6]->next = nodes[2];
-
-    nodes[7]->next = nodes[4];
-
-    nodes[8]->next = nodes[4];
-}
-
-void destroy_tree(TreeLinkNode* nodes[9]) {
-    for (int i = 1; i <= 9; i++) {
-        delete nodes[i - 1];
-    }
-}
-
 int main(int argc, char const* argv[]) {
     // 根据书上的示例创建一个包含指向父结点的二叉树。
     TreeLinkNode* nodes[9];
-    init_tree(nodes);
+    init_tree_in_book(nodes);
 
     for (int i = 0; i < 9; i++) {
         TreeLinkNode* node = Solution().GetNext(nodes[i]);
         if (node) {
-            cout << static_cast<char>('a' + i) << "'s next is " << static_cast<char>(node->val + 'a' - 1) << endl;
+            std::cout << static_cast<char>('a' + i) << "'s next is " << node->ch << std::endl;
         } else {
-            cout << static_cast<char>('a' + i) << "'s next not found" << endl;
+            std::cout << static_cast<char>('a' + i) << "'s next not found" << std::endl;
         }
     }
 
