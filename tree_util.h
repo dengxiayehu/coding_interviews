@@ -74,7 +74,7 @@ inline void pre_order(TreeNode* root) {
 #endif
 }
 
-// 后序遍历删除二叉树
+// 后序遍历删除二叉树，根节点必须最后被删除
 inline void delete_postorder(TreeNode*& node) {
     if (!node) {
         return;
