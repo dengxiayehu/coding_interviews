@@ -21,7 +21,7 @@ public:
     }
 };
 
-TEST(ut_06, PrintLinkedListInReverseWithStack) {
+TEST(ut_06_1, PrintLinkedListInReverseWithStack) {
     Solution06_1 s;
 
     auto deletor = [](ImmutableListNode* h) { destroy_list(h); };

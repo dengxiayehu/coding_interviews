@@ -27,7 +27,7 @@ public:
     }
 };
 
-TEST(ut_03, DuplicationInArrayNoEditOnce) {
+TEST(ut_03_2, DuplicationInArrayNoEditOnce) {
     Solution03_2 s;
 
     std::vector<int> numbers = {1, 3, 4, 2, 2};

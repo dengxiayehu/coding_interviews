@@ -61,7 +61,7 @@ private:
  * bool param_4 = obj->empty();
  */
 
-TEST(ut_09, MyStack) {
+TEST(ut_09_1, MyStack) {
     MyStack s;
     s.push(1);
     EXPECT_EQ(s.top(), 1);

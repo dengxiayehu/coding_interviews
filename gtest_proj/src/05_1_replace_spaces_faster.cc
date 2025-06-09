@@ -27,7 +27,7 @@ public:
     }
 };
 
-TEST(Solution05, ReplaceSpacesFaster) {
+TEST(Solution05_1, ReplaceSpacesFaster) {
     Solution05_1 s;
 
     std::string str(" We are  happy. ");

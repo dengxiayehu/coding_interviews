@@ -69,7 +69,7 @@ public:
     }
 };
 
-TEST(ut_02, President) {
+TEST(ut_02_1, President) {
     President& p = ISingleton<FrenchPresident>::GetInstance();
     p.foo();
     President& p1 = ISingleton<FrenchPresident>::GetInstance();

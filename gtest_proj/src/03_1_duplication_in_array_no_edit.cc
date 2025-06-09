@@ -91,7 +91,7 @@ private:
     }
 };
 
-TEST(ut_03, DuplicationInArrayNoEdit) {
+TEST(ut_03_1, DuplicationInArrayNoEdit) {
     Solution03_1 s;
     int duplication = 0;
 
