@@ -8,6 +8,7 @@
 // 看了之前的题解，还可以更快：
 // a^n = (a * a)^(n/2)    ，n=偶数
 // a^n = (a * a)^(n/2) * a，n=奇数
+// 编程珠玑里还介绍了乘方算法的非递归版本，应该是终极版本了。
 class Solution10_1 {
 public:
     int jumpFloorII(int number) {
@@ -15,7 +16,7 @@ public:
         if (number <= 1) {
             return 1;
         }
-        return mypow(2, number - 1);
+        return mypow_no_recursive(2, number - 1);
     }
 
 private:
@@ -29,6 +30,19 @@ private:
         } else {  // 偶数
             return mypow(a * a, n / 2);
         }
+    }
+
+    int mypow_no_recursive(int a, int n) {
+        int res = 1;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res *= a;
+            }
+            a *= a;
+            n >>= 1;
+        }
+
+        return res;
     }
 };
 
