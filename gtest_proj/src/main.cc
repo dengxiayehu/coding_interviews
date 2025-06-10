@@ -5,6 +5,8 @@
 
 #include "config.h"
 
+// Note: Test name with prefix "DISABLED_" will be disabled.
+
 int main(int argc, char* argv[]) {
     std::cout << "build_time: " << BUILD_TIME << ", commit_id: " << COMMIT_ID << std::endl;
 
