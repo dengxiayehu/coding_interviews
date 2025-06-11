@@ -11,8 +11,8 @@ class Solution15 {
 public:
     int hammingWeight(int n) {
         // return mustBePositive(n);
-        // return supportNegative(n);
-        return fast(n);
+        return supportNegative(n);
+        // return fast(n);
     }
 
 private:
@@ -60,4 +60,7 @@ TEST(ut_15, hammingWeight) {
     EXPECT_EQ(s.hammingWeight(1), 1);
     EXPECT_EQ(s.hammingWeight(3), 2);
     EXPECT_EQ(s.hammingWeight(9), 2);
+    EXPECT_EQ(s.hammingWeight(0x80000000), 1);
+    EXPECT_EQ(s.hammingWeight(0xFFFFFFFF), 32);
+    EXPECT_EQ(s.hammingWeight(-1), 32);
 }

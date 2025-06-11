@@ -45,9 +45,6 @@ private:
     // 写算法永远用最最简单、最直接的方法来实现，不要在细枝末节处乱抠技巧。Think clearly.
     static bool equal(float val, float target) {
         return abs(val - target) <= __DBL_EPSILON__;
-
-        // 下面这个代码估计是喝醉酒时候写的！
-        // return val - target <= __DBL_EPSILON__ || target - val <= __DBL_EPSILON__;
     }
 };
 
