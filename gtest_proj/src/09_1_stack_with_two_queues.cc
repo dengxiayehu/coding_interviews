@@ -3,7 +3,7 @@
 #include <queue>
 #include <vector>
 
-// leetcode 225：用队列实现栈
+// https://leetcode.cn/problems/implement-stack-using-queues/description/
 // 这道题有一个难点是怎么快捷地获取 top，用一个变量来记录。
 class MyStack {
 public:

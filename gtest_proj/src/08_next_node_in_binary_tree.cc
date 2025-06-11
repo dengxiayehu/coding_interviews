@@ -1,7 +1,7 @@
 #include "./test_helper.h"
 #include "tree_link_node.h"
 
-// leetcode 510：二叉搜索树中的中序后继 II
+// https://leetcode.cn/problems/inorder-successor-in-bst-ii/description/
 // 数据结构上将 TreeLinkNode 替换为 Node 结构，代码中的 next 替换为 parent
 class Solution08 {
 public:

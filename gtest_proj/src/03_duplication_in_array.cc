@@ -2,7 +2,7 @@
 
 #include "./test_helper.h"
 
-// leetcode 120
+// https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/description/
 class Solution03 {
 public:
     bool duplicate(int numbers[], int length, int* duplication) {

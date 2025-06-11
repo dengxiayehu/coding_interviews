@@ -2,7 +2,7 @@
 
 #include <vector>
 
-// leetcode 287
+// https://leetcode.cn/problems/find-the-duplicate-number/description/
 // 数组大小为 n + 1，其数字均在 [1, n] 之间，若没有重复则最多有 n 个数字没法填满数组，所以肯定有一个重复的数字。
 // 元素值作为下一个节点的索引，类比链表，元素的值指向下一个元素的索引（题目限制了肯定不会数组越界）
 // 关于快慢指针的证明，环入口的检测参考：https://www.zhihu.com/question/23208893/answer/1893673351702086710

@@ -4,8 +4,7 @@
 
 #include "tree_util.h"
 
-// leetcode 124：推理二叉树
-// leetcode 105：从前序与中序遍历序列构造二叉树
+// https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/description/
 class Solution07 {
 public:
     TreeNode* deduceTree(const std::vector<int>& preorder, const std::vector<int>& inorder) {

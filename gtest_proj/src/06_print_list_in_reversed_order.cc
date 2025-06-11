@@ -4,7 +4,7 @@
 
 #include "./immutable_list.h"
 
-// leetcode 1265：逆序打印不可变链表
+// https://leetcode.cn/problems/print-immutable-linked-list-in-reverse/description/
 class Solution06 {
 public:
     // 先递归再打印

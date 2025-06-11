@@ -3,7 +3,7 @@
 #include <vector>
 
 // https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/
-// 这道题和剑指 offer 上有所偏差，offer 中允许元素存在重复
+// 这道题和剑指 offer 上有所偏差，offer 中允许元素存在重复，难度更高
 class Solution11_1 {
 public:
     // 遇到要求 O(logn) 时间复杂度的算法，那么肯定是二分

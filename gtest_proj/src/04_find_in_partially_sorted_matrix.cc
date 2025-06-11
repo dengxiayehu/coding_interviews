@@ -2,7 +2,7 @@
 
 #include <vector>
 
-// leetcode 121：寻找目标值 - 二维数组
+// https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/description/
 class Solution04 {
 public:
     bool Find(int target, const std::vector<std::vector<int>>& array) {

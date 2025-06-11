@@ -5,7 +5,7 @@ ABS_DIR=$(cd $(dirname "$0"); pwd)
 cd "$ABS_DIR"
 
 run_dir="v1tests"
-[ -d "$run_dir" ] && mkdir -p "$run_dir"
+[ ! -d "$run_dir" ] && mkdir -p "$run_dir"
 cd "$run_dir"
 
 CXX="g++"
