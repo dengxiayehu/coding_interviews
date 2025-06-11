@@ -22,13 +22,16 @@ public:
         memo[1] = 1;
         memo[2] = 2;
         memo[3] = 3;
-        // 通用的套路，定义一个极值
-        int max = 0;
+        // 求取每一个 memo[i] 的值
         for (int i = 4; i <= length; i++) {
-            // 求取每一个 memo[i] 的值
-            for (int j = 1; j <= (i >> 1); j++) {  // 没必要傻傻的从 1 切割到 i - 1，超过中心就对称处理了
+            int mid_idx = (i >> 1);
+            int max = 0;
+            for (int j = 2; j <= mid_idx; j++) {  // 没必要傻傻的从 1 切割到 i - 1，超过中心就对称处理了
                 // 递推公式：f(n) = f(i) * f(n - i)
-                max = std::max(max, memo[j] * memo[i - j]);
+                // 在递推的同时，也要考虑基本不分割的场景
+                int left = std::max(j, memo[j]);
+                int right = std::max(i - j, memo[i - j]);
+                max = std::max(max, left * right);
             }
             memo[i] = max;
         }

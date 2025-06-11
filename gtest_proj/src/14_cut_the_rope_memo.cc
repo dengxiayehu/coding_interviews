@@ -15,43 +15,44 @@ public:
         if (length <= 0) {
             return 0;
         }
-
-        // 达到最小长度没法再分割了
         if (length == 1) {
             return 1;
         }
 
-        // 特殊情况，在长度为 2 和 3 时理论上不分割乘积最大，但题目要求我们必须要分割
-        // cutting_bamboo_internal 算法考虑了不分割的情况
-        // 所以需要特殊处理
+        // 特殊情况
         if (length <= 3) {
             return length - 1;
         }
 
-        // 备忘录
-        std::vector<int> memo(length + 1, -1);
+        // 备忘录，空间大小需是 length + 1，先初始化基本情况
+        std::vector<int> memo(length + 1);
+        memo[1] = 1;
+        memo[2] = 2;
+        memo[3] = 3;
+
         return cutting_bamboo_internal(length, &memo);
     }
 
 private:
     int cutting_bamboo_internal(int length, std::vector<int>* memo) {
         // 备忘录中已经有值了，直接取出
-        if ((*memo)[length] > 0) {
-            return (*memo)[length];
+        if (memo->at(length) > 0) {
+            return memo->at(length);
         }
 
-        // 默认最大乘积是不分割的情况
-        int res = length;
+        int max = 0;
         // 绳子可能的分割点
-        // 有一个优化点，i 不用从 1 开始，因为这种情况乘积肯定比不分割还小
+        // i 不用从 1 开始，因为这种情况乘积肯定比不分割还小，另外最多只要尝试分割一半就行了
         int cut_idx = (length >> 1);
         for (int i = 2; i <= cut_idx; i++) {
-            res = std::max(res, cutting_bamboo_internal(i, memo) * cutting_bamboo_internal(length - i, memo));
+            int left = std::max(i, cutting_bamboo_internal(i, memo));
+            int right = std::max(length - i, cutting_bamboo_internal(length - i, memo));
+            max = std::max(max, left * right);
         }
         // 将 length 结果保存入备忘录
-        (*memo)[length] = res;
+        memo->at(length) = max;
 
-        return res;
+        return max;
     }
 };
 
@@ -60,6 +61,7 @@ TEST(ut_14, cuttingBamboo) {
 
     EXPECT_EQ(s.cuttingBamboo(8), 18);
     EXPECT_EQ(s.cuttingBamboo(3), 2);
+    EXPECT_EQ(s.cuttingBamboo(4), 4);
     EXPECT_EQ(s.cuttingBamboo(9), 27);
     EXPECT_EQ(s.cuttingBamboo(12), 81);
     EXPECT_EQ(s.cuttingBamboo(20), 1458);
