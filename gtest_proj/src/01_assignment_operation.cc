@@ -1,6 +1,8 @@
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
 #include <string.h>
 
-#include "./test_helper.h"
+#include "./matchers.h"
 
 class CMyString {
 public:

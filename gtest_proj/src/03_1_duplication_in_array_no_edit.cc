@@ -1,6 +1,9 @@
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+
 #include <vector>
 
-#include "./test_helper.h"
+#include "./matchers.h"
 
 // https://leetcode.cn/problems/find-the-duplicate-number/description/
 // 本题 duplicate_binary_count 算法能解决 leetcode 287 问题，但不是最优，因为该题有限制只有一个重复的数字

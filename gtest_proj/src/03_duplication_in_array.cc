@@ -1,6 +1,9 @@
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+
 #include <vector>
 
-#include "./test_helper.h"
+#include "./matchers.h"
 
 // https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/description/
 class Solution03 {

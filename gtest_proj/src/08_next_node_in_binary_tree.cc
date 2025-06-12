@@ -1,4 +1,7 @@
-#include "./test_helper.h"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+
+#include "./matchers.h"
 #include "tree_link_node.h"
 
 // https://leetcode.cn/problems/inorder-successor-in-bst-ii/description/

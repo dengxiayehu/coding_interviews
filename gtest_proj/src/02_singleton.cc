@@ -1,4 +1,7 @@
-#include "./test_helper.h"
+#include <gmock/gmock.h>
+#include <gtest/gtest.h>
+
+#include "./matchers.h"
 
 class Singleton {
 public:
