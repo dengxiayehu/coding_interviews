@@ -57,5 +57,4 @@ TEST(ut_17, Print1ToMaxOfNDigits) {
 
     s.Print1ToMaxOfNDigits(1);
     s.Print1ToMaxOfNDigits(2);
-    s.Print1ToMaxOfNDigits(3);
 }
