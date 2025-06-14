@@ -74,7 +74,7 @@ int main(int argc, char const *argv[])
 > 上述算法输出：  
 [1,7,3,5,4,6,2]
 
-符合牛客网上要求但解法：
+符合牛客网上要求的解法：
 
 ``` cpp
 #include <iostream>
