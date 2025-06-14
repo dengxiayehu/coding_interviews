@@ -6,7 +6,6 @@
 
 // https://leetcode.cn/problems/sort-array-by-parity/description/
 // 题目：给你一个整数数组 nums，将 nums 中的所有偶数元素移动到数组的前面，后跟所有奇数元素。
-
 class Solution21 {
 public:
     // 类似快速排序中的 partition 算法
@@ -19,6 +18,7 @@ public:
     }
 
 private:
+    // 将条件参数化，更加通用一些
     std::vector<int> sortArray(std::vector<int>& nums, std::function<bool(int)> f) {
         size_t sz = nums.size();
         int i = 0;
