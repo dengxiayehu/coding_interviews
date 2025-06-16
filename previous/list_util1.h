@@ -2,15 +2,10 @@
 
 #include <iostream>
 
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(NULL) { }
-    explicit ListNode(int v) : val(v), next(NULL) {
-    }
-};
+#include "list_common.h"
+#include "list_node.h"
 
-inline int create_list_by_array(const int arr[], const int n, ListNode*& head, ListNode*& tail) {
+inline int create_list_by_array1(const int arr[], const int n, ListNode*& head, ListNode*& tail) {
     head = NULL;
     tail = NULL;
 
@@ -21,30 +16,20 @@ inline int create_list_by_array(const int arr[], const int n, ListNode*& head, L
     head = new ListNode[n];
 
     for (int i = 0; i < n; i++) {
-        ListNode *node = &head[i];
+        ListNode* node = &head[i];
         node->val = arr[i];
-        if (i != n-1) {
-            node->next = node+1;
+        if (i != n - 1) {
+            node->next = node + 1;
         }
     }
 
-    tail = &head[n-1];
+    tail = &head[n - 1];
 
     return 0;
 }
 
-inline int destroy_list(ListNode*& head) {
+inline int destroy_list1(ListNode*& head) {
     delete[] head;
 
     return 0;
-}
-
-// NOTE: should not use this function to print loop link list
-inline void print_list(ListNode* head) {
-    ListNode *p = head;
-    while (p) {
-        std::cout << p->val << " ";
-        p = p->next;
-    }
-    std::cout << std::endl;
 }

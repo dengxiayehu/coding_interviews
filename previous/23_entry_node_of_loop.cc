@@ -56,37 +56,37 @@ public:
 int main(int argc, char* argv[]) {
     int arr[] = {1, 2, 3, 4, 5};
     ListNode *head = NULL, *tail = NULL;
-    create_list_by_array(arr, NELEM(arr), head, tail);
+    create_list_by_array1(arr, NELEM(arr), head, tail);
     ListNode* tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
         cout << "Found " << tmp->val << endl;
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr1[] = {1};
-    create_list_by_array(arr1, NELEM(arr1), head, tail);
+    create_list_by_array1(arr1, NELEM(arr1), head, tail);
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
         cout << "Found " << tmp->val << endl;
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr2[] = {1, 2};
-    create_list_by_array(arr2, NELEM(arr2), head, tail);
+    create_list_by_array1(arr2, NELEM(arr2), head, tail);
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
         cout << "Found " << tmp->val << endl;
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr3[] = {1};
-    create_list_by_array(arr3, NELEM(arr3), head, tail);
+    create_list_by_array1(arr3, NELEM(arr3), head, tail);
     head[0].next = &head[0];
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
@@ -94,10 +94,10 @@ int main(int argc, char* argv[]) {
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr4[] = {1, 2};
-    create_list_by_array(arr4, NELEM(arr4), head, tail);
+    create_list_by_array1(arr4, NELEM(arr4), head, tail);
     head[1].next = &head[0];
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
@@ -105,10 +105,10 @@ int main(int argc, char* argv[]) {
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr5[] = {1, 2, 3};
-    create_list_by_array(arr5, NELEM(arr5), head, tail);
+    create_list_by_array1(arr5, NELEM(arr5), head, tail);
     head[2].next = &head[0];
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
@@ -116,10 +116,10 @@ int main(int argc, char* argv[]) {
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr6[] = {1, 2, 3, 4};
-    create_list_by_array(arr6, NELEM(arr6), head, tail);
+    create_list_by_array1(arr6, NELEM(arr6), head, tail);
     head[3].next = &head[0];
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
@@ -127,10 +127,10 @@ int main(int argc, char* argv[]) {
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     int arr7[] = {1, 2, 3, 4, 5};
-    create_list_by_array(arr7, NELEM(arr7), head, tail);
+    create_list_by_array1(arr7, NELEM(arr7), head, tail);
     head[4].next = &head[2];
     tmp = Solution().EntryNodeOfLoop(head);
     if (tmp) {
@@ -138,7 +138,7 @@ int main(int argc, char* argv[]) {
     } else {
         cout << "No found" << endl;
     }
-    destroy_list(head);
+    destroy_list1(head);
 
     // NULL list.
     print_list(Solution().EntryNodeOfLoop(NULL));

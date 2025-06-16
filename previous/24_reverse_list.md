@@ -3,9 +3,7 @@
 > 输入一个链表，反转链表后，输出新链表的表头。
 
 ``` cpp
-#include <iostream>
-
-#include "list_util1.h"
+#include "list_util.h"
 #include "macro_util.h"
 
 using namespace std;

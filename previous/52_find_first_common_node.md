@@ -3,9 +3,7 @@
 > 输入两个链表，找出它们的第一个公共结点。
 
 ``` cpp
-#include <iostream>
-
-#include "list_util1.h"
+#include "list_node.h"
 
 using namespace std;
 
