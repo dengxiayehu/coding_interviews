@@ -1,15 +1,37 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
+#include <queue>
 #include <vector>
 
 #include "tree_util.h"
 
 // 题目：不分行从上到下打印二叉树，同一层的节点按照从左到右的顺序打印。
+// 思路：将节点先压队列，然后取出打印后再依次压入其左右子节点。
 class Solution32 {
 public:
     std::vector<int> levelOrderTop(TreeNode* root) {
         std::vector<int> res;
+        if (root == nullptr) {
+            return res;
+        }
+
+        std::queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty()) {
+            TreeNode* node = q.front();
+            q.pop();
+
+            res.push_back(node->val);
+
+            if (node->left != nullptr) {
+                q.push(node->left);
+            }
+
+            if (node->right != nullptr) {
+                q.push(node->right);
+            }
+        }
 
         return res;
     }
@@ -23,7 +45,7 @@ MATCHER_P(VectorContentMatcher, vi, "") {
         return false;
     }
     for (size_t i = 0; i < vi_size; i++) {
-        if (vi[i] != vi[i]) {
+        if (v[i] != vi[i]) {
             return false;
         }
     }

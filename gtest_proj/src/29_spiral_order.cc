@@ -66,7 +66,7 @@ MATCHER_P(VectorContentMatcher, vi, "") {
         return false;
     }
     for (size_t i = 0; i < vi_size; i++) {
-        if (vi[i] != vi[i]) {
+        if (v[i] != vi[i]) {
             return false;
         }
     }
