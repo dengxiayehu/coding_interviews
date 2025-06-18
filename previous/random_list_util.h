@@ -71,7 +71,7 @@ inline void print_list(RandomListNode* head) {
     while (p) {
         std::cout << p << "@" << p->label;
         if (p->random) {
-            std::cout << ":" << p->random->label;
+            std::cout << ":" << p->random << "@" << p->random->label;
         }
         std::cout << " ";
         p = p->next;
