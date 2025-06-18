@@ -8,7 +8,7 @@
 // https://leetcode.cn/problems/copy-list-with-random-pointer/
 // 题目：请实现一个函数复制一个复杂链表。在复杂链表中每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针
 // 指向链表中任意节点或者 nullptr。
-// 先遍历原始链表，每个节点都复制一份挂在原始节点后面。第二遍再处理 random 指针，原始->目标，复制->目标->next。
+// 思路：先遍历原始链表，每个节点都复制一份挂在原始节点后面。第二遍再处理 random 指针，原始->目标，复制->目标->next。
 // 提交 leetcode 时将 RandomListNode 替换为 Node，label 替换为 val。
 class Solution35 {
 public:
