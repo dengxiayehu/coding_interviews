@@ -8,3 +8,4 @@ using ::testing::IsEmpty;
 using ::testing::IsNull;
 using ::testing::NotNull;
 using ::testing::StrEq;
+using ::testing::UnorderedElementsAreArray;
