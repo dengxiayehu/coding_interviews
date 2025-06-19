@@ -4,7 +4,7 @@
 #include <vector>
 
 // https://leetcode.cn/problems/permutations/
-// 结合标记数组使用。
+// 结合标记数组使用。固定一个元素，然后在整个数组中查找其他剩余值的可能值，用完就重置标志被其他排列使用。
 class Solution38_1 {
 public:
     std::vector<std::vector<int>> permute(const std::vector<int>& nums) {

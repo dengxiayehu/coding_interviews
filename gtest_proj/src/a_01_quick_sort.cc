@@ -64,20 +64,22 @@ private:
         if (medium_idx != lo) {
             myswap(arr, medium_idx, lo);
         }
-        int i = lo + 1;
+        int target = arr[lo];
+        int i = lo;
         int j = hi;
         while (i < j) {
-            while (i < j && arr[i] <= arr[lo])
-                i++;
-            while (i < j && arr[j] >= arr[lo])
+            while (i < j && arr[j] >= target) {
                 j--;
-            if (i < j) {
-                myswap(arr, i, j);
             }
+            arr[i] = arr[j];
+            while (i < j && arr[i] <= target) {
+                i++;
+            }
+            arr[j] = arr[i];
         }
-        myswap(arr, i - 1, lo);
+        arr[i] = target;
 
-        return i - 1;
+        return i;
     }
 };
 
@@ -102,6 +104,10 @@ TEST(ut_a_01, qsort) {
     std::vector<int> arr = {1, 5, 3, 2, 4, 6, 8, 10, 0};
     s.qsort(arr.data(), arr.size());
     EXPECT_TRUE(std::adjacent_find(arr.begin(), arr.end(), std::greater<int>()) == arr.end());
+
+    std::vector<int> arr1 = {5, 4};
+    s.qsort(arr1.data(), arr1.size());
+    EXPECT_TRUE(std::adjacent_find(arr1.begin(), arr1.end(), std::greater<int>()) == arr1.end());
 }
 
 TEST(ut_a_01, qsort_no_recursive) {
