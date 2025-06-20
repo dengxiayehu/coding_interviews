@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include <vector>
 
 // 1. 使用数组来实现最小堆，最小的元素在数组的索引 0
@@ -8,13 +9,15 @@
 // 4. 父节点索引 i，左子节点索引 2 * i + 1，右子节点索引 2 * i + 2
 // 5. 左右子节点索引若为 i，父节点索引则为 (i - 1) / 2
 // 其中 4, 5 两点非常关键，不能搞错。
-template <typename T>
-class MinHeap final {
+
+// Compare 是一个有默认值的类型
+template <typename T, typename Compare = std::greater<T>>
+class Heap final {
 public:
-    MinHeap() {
+    Heap() {
     }
 
-    ~MinHeap() {
+    ~Heap() {
     }
 
     // 新元素添加到数组的最后，然后做上浮操作
@@ -23,7 +26,7 @@ public:
         Up(m_arr.size() - 1);
     }
 
-    T ExtractMin() {
+    T Extract() {
         T val = m_arr[0];
         m_arr[0] = m_arr.back();
         m_arr.pop_back();
@@ -32,7 +35,7 @@ public:
         return val;
     }
 
-    T Min() const {
+    T Top() const {
         return m_arr[0];
     }
 
@@ -48,8 +51,7 @@ private:
     void Up(int idx) {
         if (idx > 0) {
             int parent_idx = ((idx - 1) >> 1);
-            if (m_arr[parent_idx] > m_arr[idx]) {
-                // 父节点值比当前值大，需要交换
+            if (m_comp(m_arr[parent_idx], m_arr[idx])) {
                 myswap(m_arr, parent_idx, idx);
                 Up(parent_idx);
             }
@@ -57,18 +59,18 @@ private:
     }
 
     void Down(int idx) {
-        int min_idx = idx;
+        int mm_idx = idx;
         int left_idx = (idx << 1) + 1;
         int right_idx = (idx << 1) + 2;
-        if (left_idx < m_arr.size() && m_arr[left_idx] < m_arr[idx]) {
-            min_idx = left_idx;
+        if (left_idx < m_arr.size() && m_comp(m_arr[idx], m_arr[left_idx])) {
+            mm_idx = left_idx;
         }
-        if (right_idx < m_arr.size() && m_arr[right_idx] < m_arr[min_idx]) {
-            min_idx = right_idx;
+        if (right_idx < m_arr.size() && m_comp(m_arr[mm_idx], m_arr[right_idx])) {
+            mm_idx = right_idx;
         }
-        if (min_idx != idx) {
-            myswap(m_arr, min_idx, idx);
-            Down(min_idx);
+        if (mm_idx != idx) {
+            myswap(m_arr, mm_idx, idx);
+            Down(mm_idx);
         }
     }
 
@@ -80,4 +82,5 @@ private:
 
 private:
     std::vector<T> m_arr;
+    Compare m_comp;
 };

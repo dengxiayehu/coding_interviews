@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "./min_heap.h"
+#include "./heap.h"
 
 // https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
 class Solution40_2 {
@@ -13,19 +13,19 @@ public:
             return 0;
         }
 
-        MinHeap<int> min_heap;
+        Heap<int> min_heap;
         for (auto n : nums) {
             if (min_heap.Empty()) {
                 min_heap.Insert(n);
             } else if (min_heap.Size() < k) {
                 min_heap.Insert(n);
-            } else if (min_heap.Min() < n) {
-                min_heap.ExtractMin();
+            } else if (min_heap.Top() < n) {
+                min_heap.Extract();
                 min_heap.Insert(n);
             }
         }
 
-        return min_heap.Min();
+        return min_heap.Top();
     }
 };
 
