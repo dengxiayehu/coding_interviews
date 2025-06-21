@@ -45,7 +45,7 @@ function show_help() {
     echo "usage: $prog_name [-o] [-h]"
 }
 
-[ $on_compile_info -ne 0 ] && gen_compile_info
+[ $on_compile_info -ne 0 -o ! -f "$CONFIG_HEADER" ] && gen_compile_info
 [ $help -ne 0 ] && show_help && exit 0
 
 export TARGET_NAME="ci_ut"
