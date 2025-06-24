@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <vector>
 
+// 题目：扑克牌中的顺子。从扑克牌中随机抽取 5 张，判断是不是一个顺子，即这 5 张牌是不是连续的。2~10 为数字本身，A 为 1，
+// j 为 11，Q 为 12，K 为 13，而大小王（0）可以看成任意数字。
 class Solution61 {
 public:
     bool isContinuous(std::vector<int> numbers) {
