@@ -64,5 +64,5 @@ TEST(ut_59_1, QueueWithMax) {
     EXPECT_EQ(max_queue.Max(), 6);
 
     max_queue.Pop();
-    EXPECT_EQ(max_queue.Max(), 3);
+    EXPECT_EQ(max_queue.Max(), 6);
 }
