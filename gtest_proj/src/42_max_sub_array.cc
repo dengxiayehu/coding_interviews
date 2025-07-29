@@ -6,7 +6,7 @@
 
 // https://leetcode.cn/problems/maximum-subarray/description/
 // 题目：输入一个整型数组，数组里有整数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
-// 典型的动态规划算法：max[m, n] = max(max[m, n - 1] + nums[n], nums[1])
+// 典型的动态规划算法：max[m, n] = max(max[m, n - 1] + nums[n], nums[n])
 class Solution42 {
 public:
     int maxSubArray(const std::vector<int>& nums) {
