@@ -25,7 +25,7 @@ cd gtest_proj
 | 7 | 重建二叉树 | [07_construct_binary_tree.cc](gtest_proj/src/07_construct_binary_tree.cc)</br><blockquote>根据先序节点在中序节点数组中查找，左边为左子树，右边为右子树</blockquote> |
 | 8 | 二叉树的下一个节点 | [08_next_node_in_binary_tree.cc](gtest_proj/src/08_next_node_in_binary_tree.cc)</br><blockquote>考虑节点是否有右子树</blockquote> |
 | 9 | 用两个栈实现队列 | [09_queue_with_two_stacks.cc](gtest_proj/src/09_queue_with_two_stacks.cc)</br><blockquote>永远只在一个栈入栈</blockquote> |
-| 9_1 | 用两个栈实现队列 | [09_1_stack_with_two_queues.cc](gtest_proj/src/09_1_stack_with_two_queues.cc)</br><blockquote>队列 1 拷贝到队列 2 仅保留一个元素，top 用成员变量记录</blockquote> |
+| 9_1 | 用两个队列实现栈 | [09_1_stack_with_two_queues.cc](gtest_proj/src/09_1_stack_with_two_queues.cc)</br><blockquote>队列 1 拷贝到队列 2 仅保留一个元素，top 用成员变量记录</blockquote> |
 | 10 | 青蛙跳台阶 | [10_jump_floor.cc](gtest_proj/src/10_jump_floor.cc)</br><blockquote>转换为斐波那契数列求解</blockquote> |
 | 10_1 | 青蛙变态跳台阶 | [10_1_crasy_jump_floor.cc](gtest_proj/src/10_1_crasy_jump_floor.cc)</br><blockquote>每一阶台阶要么跳要么不跳，转换为快速乘方算法</blockquote> |
 | 10_2 | 矩形覆盖 | [10_2_rect_cover.cc](gtest_proj/src/10_2_rect_cover.cc)</br><blockquote>转换为斐波那契数列求解</blockquote> |
