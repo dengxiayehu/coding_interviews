@@ -3,6 +3,9 @@
 
 #include "./matchers.h"
 
+// 实现单例模式，需考虑：
+// 1. 线程安全
+// 2. 单例对象在进程结束时能被销毁
 class Singleton {
 public:
     ~Singleton() {

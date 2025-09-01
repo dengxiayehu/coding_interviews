@@ -5,6 +5,9 @@
 
 #include "./matchers.h"
 
+// 题目：找出数组中重复的数字
+// 在一个长度为 n 的数组里的所有数字都在 [0, n - 1] 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道
+// 每个数字重复了几次。请找出数组中任意一个重复的数字。
 // https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/description/
 class Solution03 {
 public:
@@ -20,11 +23,11 @@ public:
             }
         }
         for (int i = 0; i < length; i++) {
-            // 索引 i 的位置的值应该存放值 i
-            while (numbers[i] != i) {
+            // 既然数组元素的值范围在 [0, n - 1]，则我们将这些值放置到数组对应的索引上。
+            while (numbers[i] != i) {  // 值 numbers[i] 不在预期位置上
                 int tmp = numbers[i];
-                int remote = numbers[tmp];
-                if (tmp == remote) {
+                int remote = numbers[tmp];  // 现在预期位置上的值
+                if (tmp == remote) {        // 现在预期位置上的值已经摆放正确了，则找到一个重复元素
                     if (duplication != nullptr) {
                         *duplication = tmp;
                     }

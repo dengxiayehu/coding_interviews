@@ -2,6 +2,7 @@
 
 #include <vector>
 
+// 题目：二维数组中的查找
 // https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/description/
 class Solution04 {
 public:
@@ -11,7 +12,7 @@ public:
         }
         const size_t row_num = array.size();
         const size_t col_num = array[0].size();
-        // 定位二维数组的右上角元素并从它开始探测
+        // 定位二维数组的右上角元素并从它开始探测 （也可以从数组的左下角开始查找）
         int r = 0;
         int c = col_num - 1;
         while (r < row_num && c >= 0) {

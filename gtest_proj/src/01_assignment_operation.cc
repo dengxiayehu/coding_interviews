@@ -4,6 +4,7 @@
 
 #include "./matchers.h"
 
+// 实现一个异常安全的赋值运算符。
 class CMyString {
 public:
     explicit CMyString(const char* pData = nullptr);

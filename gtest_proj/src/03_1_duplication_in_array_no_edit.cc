@@ -5,7 +5,10 @@
 
 #include "./matchers.h"
 
-// https://leetcode.cn/problems/find-the-duplicate-number/description/
+// 题目：不修改数组找出重复的数字。
+// 在一个长度为 n + 1 的数组里的所有数字都在 [1, n] 的范围内，所以数组中至少有一个数字是重复的。请找出数组中任意一个重复
+// 的数字，但不能修改输入的数组。
+// leetcode 287: https://leetcode.cn/problems/find-the-duplicate-number/description/
 // 本题 duplicate_binary_count 算法能解决 leetcode 287 问题，但不是最优，因为该题有限制只有一个重复的数字
 class Solution03_1 {
 public:
@@ -76,7 +79,7 @@ private:
                         return true;
                     }
                 }
-                l = m;
+                l = m + 1;
                 continue;
             }
         }
